@@ -15,7 +15,8 @@ header{min-height:106px;height:auto;padding-block:18px;gap:24px}
 .collection{padding-top:50px}
 .filters button.active{background:#365448;color:#91e8b8}
 .card .product-art{background:#2c3f42}
-.card .tag{background:#274839ed;color:#bcf2d1;border-color:#4d7660}
+.card .product-art .tag{background:#143b2b;color:#f2fff7;border:1px solid #79b292;font-size:11px;font-weight:700;line-height:1.5;letter-spacing:.6px;padding:7px 10px;max-width:calc(100% - 24px);top:12px;left:12px;right:auto;text-align:left;white-space:normal;opacity:1;text-shadow:none;box-shadow:0 2px 8px #0005}
+@media(max-width:600px){.card .product-art .tag{font-size:10px;letter-spacing:.2px;padding:5px 7px;top:7px;left:7px;max-width:calc(100% - 14px)}}
 .card .product-art .arrow{color:#5ce39a;border-color:#557d6a;background:#304b40}
 .essence{background:#2c4143;border:1px solid #435e5a;border-radius:12px;overflow:hidden}
 .essence>.brand-art{padding:28px;min-height:350px;display:grid;place-items:center;background:linear-gradient(145deg,#30464b,#283c41)}
