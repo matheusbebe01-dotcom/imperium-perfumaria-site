@@ -52,3 +52,30 @@ button:focus-visible,a:focus-visible{outline-color:#6ce6a4}
 @media(max-width:1100px){header nav{gap:17px}.brand-copy{font-size:25px}}
 @media(max-width:700px){header{gap:12px;padding-block:14px;min-height:92px}.brand,footer .brand{gap:9px}.brand-logo{width:48px;height:48px;flex-basis:48px}.brand-copy{font-size:22px}.brand .brand-copy small{font-size:8px;letter-spacing:2px;margin-top:5px}.actions{gap:5px;font-size:10px}.actions button{padding:4px}#count{margin-left:3px;padding:3px 6px}.essence>.brand-art{min-height:245px;padding:25px}.brand-art img{width:220px}.collection{padding-top:35px}.ribbon{font-size:8px}}
 @media(max-width:380px){header{flex-wrap:wrap}.brand-copy{font-size:19px}.brand-logo{width:40px;height:40px;flex-basis:40px}.actions{gap:3px;font-size:9px;margin-left:auto}}
+
+/* Tipografia clássica com fontes locais, sem carregamento externo. */
+body{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.6}
+h1,h2,h3{font-family:'Palatino Linotype','Book Antiqua',Palatino,Georgia,serif;font-weight:400;letter-spacing:.01em;line-height:1.18}
+em{font-family:inherit;font-style:italic}
+.brand-copy{font-family:Georgia,'Times New Roman',serif;font-size:25px;font-weight:400;font-variant:small-caps;letter-spacing:.4px;line-height:1.15}
+.brand .brand-copy small{font-family:Georgia,'Times New Roman',serif;font-size:10px;font-variant:normal;font-weight:400;letter-spacing:2.4px}
+.eyebrow,.strip-heading .eyebrow{font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:2px;font-weight:400}
+nav,.actions{font-size:12px}
+.section-top>p,.essence p:not(.eyebrow),.club p{font-size:14px;line-height:1.85}
+.product-summary h3{font-size:34px;line-height:1.2}
+.product-summary p{font-size:14px;line-height:1.85}
+.meta{font-size:10px;letter-spacing:1.2px}
+.primary,.text-link,.more-link,.filters button,.price-row button{font-size:12px}
+.strip-name{font-size:11px;font-weight:400;line-height:1.45;min-height:32px}
+.strip-heading p:last-child{font-size:12px}
+.strip-pause{font-size:11px}
+.notes,dialog p,label,.assistant-message,.assistant-result{font-size:13px;line-height:1.8}
+.assistant-head{font-size:16px}
+.assistant-head small{font-size:11px}
+.assistant-message small{font-size:11px}
+.notice,.catalog-note,.photo-caption,.photo-credit{font-size:12px;line-height:1.75}
+#assistantForm input{font-family:Georgia,'Times New Roman',serif;font-size:13px}
+footer p,footer button,footer>small{font-size:11px}
+@media(max-width:1100px){.brand-copy{font-size:23px}}
+@media(max-width:700px){.brand-copy{font-size:20px}.brand .brand-copy small{font-size:9px}.actions{font-size:11px}.product-summary h3{font-size:26px}.product-summary p{font-size:12px}.product-summary .meta{font-size:9px;line-height:1.6}.strip-name{font-size:10px}.strip-heading p:last-child{font-size:11px}.strip-pause{font-size:10px}.filters button{font-size:11px}.section-top>p{font-size:13px}}
+@media(max-width:380px){.brand-copy{font-size:18px}.actions{font-size:10px}}
