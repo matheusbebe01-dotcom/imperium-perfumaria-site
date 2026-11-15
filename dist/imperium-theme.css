@@ -1,0 +1,54 @@
+/* Verde da marca, prata e cinza azulado em uma apresentação clara. */
+:root{--bg:#fff;--panel:#f2f6f5;--gold:#087c4b;--text:#253c40;--muted:#647579;--line:#dbe5e3}
+body{background:var(--bg);color:var(--text)}
+header{min-height:106px;height:auto;padding-block:18px;gap:24px}
+.brand,footer .brand{display:flex;align-items:center;gap:14px;flex-shrink:0;text-transform:none;letter-spacing:0}
+.brand-logo{display:block;width:64px;height:64px;flex:0 0 64px;overflow:hidden;border-radius:50%;border:2px solid #cedbd7;box-shadow:0 2px 8px #273e4014;background:#34484e}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+.brand-copy{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:600;line-height:1.05;color:#196444;white-space:nowrap}
+.brand .brand-copy small{font-family:Manrope,Arial,sans-serif;font-size:9px;line-height:1.5;letter-spacing:3px;text-transform:uppercase;color:#657b7b;margin-top:7px}
+.demo{background:#edf4f1;color:#4a6861;border-bottom:1px solid #dce8e3}
+.primary,#count,#assistantForm button{background:#087c4b;color:#fff}
+.primary:hover{background:#08683f;color:#fff}
+.ribbon{background:#f7f9f8;color:#526e65;border-color:var(--line)}
+.collection{padding-top:50px}
+.filters button.active{background:#e3f2ea;color:#086a40}
+.card .product-art{background:#f0f5f3}
+.card .tag{background:#fafffbea;color:#37604e;border-color:#c5d8cf}
+.card .product-art .arrow{color:#087c4b;border-color:#bdd6c9;background:#f9fffb}
+.essence{background:#eef5f2;border:1px solid #dce7e2;border-radius:12px;overflow:hidden}
+.essence>.brand-art{padding:28px;min-height:350px;display:grid;place-items:center;background:linear-gradient(145deg,#e9eff0,#f8faf9)}
+.brand-art img{display:block;width:min(100%,310px);height:auto;border-radius:10px;box-shadow:0 12px 32px #31494c1c}
+.whatsapp{background:#087c4b;color:#fff;border-color:#087c4b}
+.whatsapp:hover{background:#08683f;color:#fff}
+dialog{background:#fff;border-color:#c6d8d0;color:var(--text)}
+dialog::backdrop{background:#203c405c}
+.notice{background:#f0f6f3;color:#516b61;border-color:#087c4b}
+input:not([type=checkbox]){background:#fbfdfc;color:var(--text);border-color:#cdded5}
+#toast{background:#21654c;color:#fff}
+.assistant-launch{background:#e5f2eb;color:#12623f;border-color:#95bfa8}
+.assistant-panel{background:#fff;border-color:#b9d2c5}
+.assistant-head{background:#e8f2ee;color:#215a44;border-bottom:1px solid #c6dcd0}
+.assistant-head small{color:#52776a}
+.assistant-message{background:#f0f6f3;color:#456054}
+.assistant-message.user{background:#ddf0e6}
+.assistant-message small,.assistant-result small{color:#61786f}
+.assistant-result,.assistant-suggestions button{color:#096c41;border-color:#c5dace}
+.assistant-suggestions button{background:#f4faf6}
+#assistantForm{border-color:#d9e6df}
+#assistantForm input{background:#f6faf8}
+.perfume-strip{background:linear-gradient(105deg,#edf6f1,#f4f7f7);border-color:#d7e5dd}
+.strip-heading .eyebrow{color:#087c4b;font-size:11px;letter-spacing:2px;margin:0 0 7px}
+.strip-heading p:last-child{color:#5a7569}
+.strip-pause{background:#fff;color:#116b43;border-color:#b6d1c3}
+.strip-pause:hover{background:#deeee5;color:#085a35}
+.strip-item{color:#345e4b}
+.strip-photo{background:#fff;border-color:#cadad2;box-shadow:0 3px 9px #274d3b0d}
+.strip-item:hover .strip-photo{border-color:#21955b;box-shadow:0 4px 12px #1c77452b}
+.gallery-thumbs button.active{border-color:#168652}
+.photo-caption,.photo-credit,.catalog-note{color:#63776e}
+.photo-credit a,.source-link{color:#086f42}
+button:focus-visible,a:focus-visible{outline-color:#168652}
+@media(max-width:1100px){header nav{gap:17px}.brand-copy{font-size:25px}}
+@media(max-width:700px){header{gap:12px;padding-block:14px;min-height:92px}.brand,footer .brand{gap:9px}.brand-logo{width:48px;height:48px;flex-basis:48px}.brand-copy{font-size:22px}.brand .brand-copy small{font-size:8px;letter-spacing:2px;margin-top:5px}.actions{gap:5px;font-size:10px}.actions button{padding:4px}#count{margin-left:3px;padding:3px 6px}.essence>.brand-art{min-height:245px;padding:25px}.brand-art img{width:220px}.collection{padding-top:35px}.ribbon{font-size:8px}}
+@media(max-width:380px){header{flex-wrap:wrap}.brand-copy{font-size:19px}.brand-logo{width:40px;height:40px;flex-basis:40px}.actions{gap:3px;font-size:9px;margin-left:auto}}

@@ -1,4 +1,4 @@
-﻿# Maison Noir — protótipo de perfumaria
+﻿# Barbearia Imperium — protótipo de perfumaria
 
 Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos enviadas pelo cliente e 3 fotos adicionais pesquisadas na internet. Marca da loja e checkout continuam demonstrativos. Preços e disponibilidade sob consulta.
 
