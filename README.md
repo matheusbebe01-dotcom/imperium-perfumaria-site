@@ -1,6 +1,6 @@
 ﻿# Barbearia Imperium — protótipo de perfumaria
 
-Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos enviadas pelo cliente e 3 fotos adicionais pesquisadas na internet. Preços e disponibilidade são combinados pelo WhatsApp da Barbearia Imperium.
+Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos enviadas pelo cliente e 3 fotos adicionais pesquisadas na internet. Preços e disponibilidade são combinados pelo WhatsApp da Barbearia Imperium. Os perfumes são oferecidos em tamanho original, conforme informado pela loja; não presumir o volume em mililitros a partir das fotos de referência.
 
 Identificações, limitações e fontes estão em CATALOGO-IDENTIFICACAO.md. Edite os produtos em catalog.json e execute `node build-site.cjs` para atualizar app.js e dist. Valide com `node --check app.js` e `node verify-catalog.cjs`.
 

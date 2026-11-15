@@ -1,21 +1,21 @@
 # Catálogo — identificação pelas fotos
 
-Atualizado em 15/11/2026. As 19 fotos originais foram preservadas e copiadas para `assets/perfumes/cliente-01.jpg` a `cliente-19.jpg` em ordem alfabética do nome original. O site usa 12 registros com galeria individual. Preços não enviados pelo cliente: todos sob consulta.
+Atualizado em 15/11/2026. Correção posterior da loja: os perfumes vendidos pelo fornecedor são de tamanho original. O catálogo exibe “Tamanho original”, sem presumir a quantidade em mililitros. Os tamanhos legíveis nas fotos de referência não definem a apresentação comercial disponível. As 19 fotos originais foram preservadas e copiadas para `assets/perfumes/cliente-01.jpg` a `cliente-19.jpg` em ordem alfabética do nome original. O site usa 12 registros com galeria individual. Preços não enviados pelo cliente: todos sob consulta.
 
 | Produto / versão visual | Aroma | Situação |
 | --- | --- | --- |
-| Fakhar dourado, 50 ml | A confirmar | Tampa Clive Dorris; caixa Fakhar Lattafa. Não associar automaticamente ao Fakhar Gold Lattafa. |
-| Fakhar preto/prata, 50 ml | A confirmar | Marca e edição dependem de foto do verso/base. |
+| Fakhar dourado | A confirmar | Tampa Clive Dorris; caixa Fakhar Lattafa. Não associar automaticamente ao Fakhar Gold Lattafa. |
+| Fakhar preto/prata | A confirmar | Marca e edição dependem de foto do verso/base. |
 | Rave Now Intense | Fresco, aquático, verde, amadeirado | Perfil pesquisado; volume da unidade não legível. |
 | Rave Now preto | Frutado, amadeirado, almiscarado | Perfil da marca; volume da unidade a confirmar. |
 | Mystical Khamraha | Doce, especiado, gourmand | Perfil de revendedor; volume a confirmar. |
-| Mystical Khamraha Qahwaa, 50 ml | A confirmar | Nome e volume legíveis; fontes de notas encontradas tinham divergências. |
-| Phantasm Silver, 50 ml | A confirmar | Correspondência visual com catálogo de revendedor. |
-| Phantasm dourado, 50 ml | A confirmar | Cor como identificação visual; sem fórmula confirmada. |
-| Phantasm bronze, 50 ml | A confirmar | Duas fotos individuais e uma foto do trio. |
-| Asad Zanzibar, rótulo Lattafa, 30 ml | Coco salgado, especiado, baunilha | Perfil da fragrância da marca; foto não comprova procedência. |
+| Mystical Khamraha Qahwaa | A confirmar | Nome legível; fontes de notas encontradas tinham divergências. |
+| Phantasm Silver | A confirmar | Correspondência visual com catálogo de revendedor. |
+| Phantasm dourado | A confirmar | Cor como identificação visual; sem fórmula confirmada. |
+| Phantasm bronze | A confirmar | Duas fotos individuais e uma foto do trio. |
+| Asad Zanzibar, rótulo Lattafa | Coco salgado, especiado, baunilha | Perfil da fragrância da marca. Tamanho original conforme a loja. |
 | Asad avermelhado, rótulo Lattafa | A confirmar | Sem subtítulo legível. Não classificado como Bourbon. |
-| Mystical Asada, 30 ml | Oriental, especiado, amadeirado, baunilha | Descrição de revendedores, sem promessa de duração. |
+| Mystical Asada | Oriental, especiado, amadeirado, baunilha | Descrição de revendedores, sem promessa de duração. |
 
 Ocasiões e intensidade são sugestões editoriais a partir do perfil pesquisado. Itens sem composição confirmada não entram nas recomendações por aroma. Não foram atribuídas fórmulas de Lattafa a produtos Mystical, Clive Dorris ou Phantasm.
 
