@@ -367,7 +367,7 @@ const $=s=>document.querySelector(s);
 const modal=$('#modal'), body=$('#modalBody');
 let cart=[],customer=null,toastTimer;
 try{cart=JSON.parse(sessionStorage.getItem('mn-cart')||'[]').filter(x=>perfumes.some(p=>p.id===x.id)&&Number.isInteger(x.qty)&&x.qty>0&&x.qty<=20)}catch{}
-try{const saved=JSON.parse(localStorage.getItem('imperium-customer')||sessionStorage.getItem('imperium-customer')||'null');if(saved&&typeof saved.name==='string'&&saved.name.trim().length>=2)customer={name:saved.name.trim().slice(0,100)}}catch{}
+try{const saved=JSON.parse(localStorage.getItem('imperium-customer')||sessionStorage.getItem('imperium-customer')||'null');if(saved&&typeof saved.name==='string'){const parts=saved.name.trim().split(/\s+/);const firstName=typeof saved.firstName==='string'?saved.firstName.trim():parts.shift()||'';const lastName=typeof saved.lastName==='string'?saved.lastName.trim():parts.join(' ');if(firstName.length>=2&&lastName.length>=2)customer={firstName,lastName,name:firstName+' '+lastName}}}catch{}
 function bottle(p,suffix='card'){return '<img class="perfume-photo" src="'+p.images[0].src+'" alt="'+p.name+' — '+p.brand+'" '+(suffix==='hero'?'fetchpriority="high"':'loading="lazy"')+' decoding="async" width="960" height="1280">'}
 function gallery(p){return '<div class="gallery"><div class="product-art">'+bottle(p,'detail')+'</div><div class="gallery-thumbs" role="group" aria-label="Fotos de '+p.name+'">'+p.images.map((im,i)=>'<button class="'+(!i?'active':'')+'" data-photo="'+i+'" data-product="'+p.id+'" aria-label="Ver foto '+(i+1)+' de '+p.name+'" aria-pressed="'+(!i)+'"><img src="'+im.src+'" alt="" loading="lazy" width="72" height="96"></button>').join('')+'</div><p class="photo-caption">'+p.images[0].caption+'</p><div class="photo-credit"></div></div>'}
 
@@ -405,23 +405,26 @@ function quote(reason='prices'){
 function showCart(){
   const rows=cart.map(x=>{const p=perfumes.find(p=>p.id===x.id);return '<div class="cart-row"><div><h3>'+p.name+'</h3><p>'+money(p.price)+' · '+p.volume+'</p></div><div class="qty"><button data-qty="'+p.id+'" data-delta="-1" aria-label="Diminuir '+p.name+'">−</button><span>'+x.qty+'</span><button data-qty="'+p.id+'" data-delta="1" aria-label="Aumentar '+p.name+'">+</button></div></div>'}).join('');
   show('<p class="eyebrow">SEUS ESCOLHIDOS</p><h2>Minha sacola</h2>'+(cart.length?rows+'<section class="cart-conversation"><h3>Vamos conversar?</h3><p>Combine os preços ou tire suas dúvidas diretamente com a barbearia.</p><div class="quote-actions"><button class="primary" data-quote="prices">Combinar preços pelo WhatsApp ↗</button><button class="quote-secondary" data-quote="products">Conversar sobre os produtos ↗</button></div><p class="quote-note">A mensagem incluirá seu nome, os perfumes e as quantidades da sacola. Você poderá revisar e enviar no WhatsApp.</p><details class="quote-preview"><summary>Ver mensagem de negociação</summary><pre id="quotePreview"></pre></details></section>':'<p class="empty">Sua sacola está esperando sua próxima assinatura.</p><button class="primary" id="browse">Explorar coleção ↗</button>'));
-  if(cart.length)$('#quotePreview').textContent=customer?cartMessage('prices'):'Informe seu nome ao continuar para personalizar a apresentação. Os perfumes e as quantidades serão incluídos automaticamente.';
+  if(cart.length)$('#quotePreview').textContent=customer?cartMessage('prices'):'Informe seu nome e sobrenome ao continuar para personalizar a apresentação. Os perfumes e as quantidades serão incluídos automaticamente.';
 }
 function account(next=''){
   const pendingQuote=next==='prices'||next==='products';
-  show('<div class="form-wrap customer-entry"><p class="eyebrow">BARBEARIA IMPERIUM · PERFUMARIA</p><h2>'+ (customer?'Seu atendimento.':'Seja bem-vindo.')+'</h2><p>Como podemos chamar você? Seu nome acompanhará os perfumes escolhidos quando conversar com a loja.</p><form id="customerForm"><label for="customerName">Seu nome<input id="customerName" name="name" type="text" required minlength="2" maxlength="100" autocomplete="name" placeholder="Digite seu nome"></label><label class="check"><input id="rememberCustomer" type="checkbox" checked> Lembrar meu nome neste dispositivo.</label><p class="entry-note">Esta entrada identifica seu atendimento, sem senha. Seu nome fica salvo somente neste navegador; não há autenticação de conta.</p><button class="primary" type="submit">'+(pendingQuote?'Continuar para o WhatsApp ↗':'Entrar e ver perfumes ↗')+'</button></form><button class="entry-browse" id="browseGuest" type="button">Conhecer os perfumes primeiro</button>'+(customer?'<button class="entry-browse" id="logout" type="button">Remover meu nome deste dispositivo</button>':'')+'</div>');
-  if(customer)$('#customerName').value=customer.name;
+  show('<div class="form-wrap customer-entry"><p class="eyebrow">BARBEARIA IMPERIUM · PERFUMARIA</p><h2>'+ (customer?'Seu atendimento.':'Seja bem-vindo.')+'</h2><p>Como podemos chamar você? Seu nome e sobrenome acompanharão os perfumes escolhidos quando conversar com a loja.</p><form id="customerForm"><label for="customerName">Nome<input id="customerName" name="firstName" type="text" required minlength="2" maxlength="50" autocomplete="given-name" placeholder="Digite seu nome"></label><label for="customerSurname">Sobrenome<input id="customerSurname" name="lastName" type="text" required minlength="2" maxlength="70" autocomplete="family-name" placeholder="Digite seu sobrenome"></label><label class="check"><input id="rememberCustomer" type="checkbox" checked> Lembrar meu nome e sobrenome neste dispositivo.</label><p class="entry-note">Esta entrada identifica seu atendimento, sem senha. Seu nome e sobrenome ficam salvos somente neste navegador; não há autenticação de conta.</p><button class="primary" type="submit">'+(pendingQuote?'Continuar para o WhatsApp ↗':'Entrar e ver perfumes ↗')+'</button></form><button class="entry-browse" id="browseGuest" type="button">Conhecer os perfumes primeiro</button>'+(customer?'<button class="entry-browse" id="logout" type="button">Remover meu nome deste dispositivo</button>':'')+'</div>');
+  if(customer){$('#customerName').value=customer.firstName;$('#customerSurname').value=customer.lastName}
   $('#customerForm').onsubmit=e=>{
     e.preventDefault();
-    const name=$('#customerName').value.trim().replace(/\s+/g,' ').slice(0,100);
-    if(name.length<2){$('#customerName').setCustomValidity('Informe pelo menos dois caracteres.');$('#customerName').reportValidity();return}
-    customer={name};
+    const firstName=$('#customerName').value.trim().replace(/\s+/g,' ').slice(0,50);
+    const lastName=$('#customerSurname').value.trim().replace(/\s+/g,' ').slice(0,70);
+    if(firstName.length<2){$('#customerName').setCustomValidity('Informe seu nome com pelo menos dois caracteres.');$('#customerName').reportValidity();return}
+    if(lastName.length<2){$('#customerSurname').setCustomValidity('Informe seu sobrenome com pelo menos dois caracteres.');$('#customerSurname').reportValidity();return}
+    customer={firstName,lastName,name:firstName+' '+lastName};
     try{localStorage.removeItem('imperium-customer');sessionStorage.removeItem('imperium-customer');sessionStorage.removeItem('mn-demo-user');const storage=$('#rememberCustomer').checked?localStorage:sessionStorage;storage.setItem('imperium-customer',JSON.stringify(customer))}catch{}
     $('#account').textContent='Meu perfil';
     modal.close();
     if(pendingQuote){showCart();quote(next)}else{toast('Bem-vindo! Escolha seus perfumes.');location.hash='colecao'}
   };
   $('#customerName').addEventListener('input',()=>$('#customerName').setCustomValidity(''));
+  $('#customerSurname').addEventListener('input',()=>$('#customerSurname').setCustomValidity(''));
   $('#customerName').focus();
 }
 function clearCustomer(){customer=null;try{localStorage.removeItem('imperium-customer');sessionStorage.removeItem('imperium-customer');sessionStorage.removeItem('mn-demo-user')}catch{}$('#account').textContent='Entrar';account()}

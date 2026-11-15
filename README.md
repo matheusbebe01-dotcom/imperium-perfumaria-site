@@ -4,7 +4,7 @@ Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos envia
 
 Identificações, limitações e fontes estão em CATALOGO-IDENTIFICACAO.md. Edite os produtos em catalog.json e execute `node build-site.cjs` para atualizar app.js e dist. Valide com `node --check app.js` e `node verify-catalog.cjs`.
 
-Na primeira visita, abre uma tela de identificação pelo nome. O cliente pode lembrar o nome no dispositivo (localStorage) ou apenas na aba (sessionStorage). Não há senha, autenticação ou banco de dados. A sacola dura a sessão da aba. O cliente pode explorar sem se identificar, mas precisa informar o nome antes de encaminhar a seleção ao WhatsApp.
+Na primeira visita, abre uma tela de identificação com nome e sobrenome obrigatórios. O cliente pode lembrar o nome no dispositivo (localStorage) ou apenas na aba (sessionStorage). Não há senha, autenticação ou banco de dados. A sacola dura a sessão da aba. O cliente pode explorar sem se identificar, mas precisa informar nome e sobrenome antes de encaminhar a seleção ao WhatsApp.
 
 A sacola oferece “Combinar preços pelo WhatsApp” e “Conversar sobre os produtos”. O link usa `wa.me` com mensagem codificada, nome, nomes dos perfumes e quantidades atuais. O cliente revisa e envia a mensagem no WhatsApp; o site não envia automaticamente e não efetua pedidos ou pagamentos. A prévia da mensagem fica disponível na sacola.
 
