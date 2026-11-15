@@ -23,7 +23,8 @@
         "src": "assets/perfumes/cliente-01.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-101.jpg"
   },
   {
     "id": 102,
@@ -49,7 +50,8 @@
         "src": "assets/perfumes/cliente-01.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-102.jpg"
   },
   {
     "id": 103,
@@ -82,7 +84,8 @@
         "url": "https://royalsperfume.de/ru/products/rave-now-intense-perfumed-water-for-men-100ml",
         "caption": "Foto de referência da internet · apresentação de 100 ml; confirme o volume disponível."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-103.jpg"
   },
   {
     "id": 104,
@@ -109,7 +112,8 @@
         "src": "assets/perfumes/cliente-02.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-104.jpg"
   },
   {
     "id": 105,
@@ -140,7 +144,8 @@
         "src": "assets/perfumes/cliente-09.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-105.jpg"
   },
   {
     "id": 106,
@@ -176,7 +181,8 @@
         "url": "https://www.tiendalafe.com/products/khamrah-qahwa-mystical-edp-50ml-h-aroma-similar-lattafa-khamrah-qahwa",
         "caption": "Foto adicional da internet · Khamraha Qahwaa Mystical 50 ml."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-106.jpg"
   },
   {
     "id": 107,
@@ -209,7 +215,8 @@
         "url": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
         "caption": "Foto adicional da internet · Phantasm Silver 50 ml."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-107.jpg"
   },
   {
     "id": 108,
@@ -235,7 +242,8 @@
         "src": "assets/perfumes/cliente-16.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-108.jpg"
   },
   {
     "id": 109,
@@ -265,7 +273,8 @@
         "src": "assets/perfumes/cliente-16.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-109.jpg"
   },
   {
     "id": 110,
@@ -292,7 +301,8 @@
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-110.jpg"
   },
   {
     "id": 111,
@@ -318,7 +328,8 @@
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-111.jpg"
   },
   {
     "id": 112,
@@ -345,6 +356,7 @@
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-112.jpg"
   }
 ]

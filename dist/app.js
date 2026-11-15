@@ -25,7 +25,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-01.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-101.jpg"
   },
   {
     "id": 102,
@@ -51,7 +52,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-01.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-102.jpg"
   },
   {
     "id": 103,
@@ -84,7 +86,8 @@ const perfumes = [
         "url": "https://royalsperfume.de/ru/products/rave-now-intense-perfumed-water-for-men-100ml",
         "caption": "Foto de referência da internet · apresentação de 100 ml; confirme o volume disponível."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-103.jpg"
   },
   {
     "id": 104,
@@ -111,7 +114,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-02.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-104.jpg"
   },
   {
     "id": 105,
@@ -142,7 +146,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-09.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-105.jpg"
   },
   {
     "id": 106,
@@ -178,7 +183,8 @@ const perfumes = [
         "url": "https://www.tiendalafe.com/products/khamrah-qahwa-mystical-edp-50ml-h-aroma-similar-lattafa-khamrah-qahwa",
         "caption": "Foto adicional da internet · Khamraha Qahwaa Mystical 50 ml."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-106.jpg"
   },
   {
     "id": 107,
@@ -211,7 +217,8 @@ const perfumes = [
         "url": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
         "caption": "Foto adicional da internet · Phantasm Silver 50 ml."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-107.jpg"
   },
   {
     "id": 108,
@@ -237,7 +244,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-16.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-108.jpg"
   },
   {
     "id": 109,
@@ -267,7 +275,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-16.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-109.jpg"
   },
   {
     "id": 110,
@@ -294,7 +303,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-110.jpg"
   },
   {
     "id": 111,
@@ -320,7 +330,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-111.jpg"
   },
   {
     "id": 112,
@@ -347,7 +358,8 @@ const perfumes = [
         "src": "assets/perfumes/cliente-14.jpg",
         "caption": "Foto do cliente · outra composição com o produto."
       }
-    ]
+    ],
+    "thumbnail": "assets/perfumes/thumb-112.jpg"
   }
 ];
 const money=n=>n==null?'Sob consulta':n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
@@ -358,6 +370,19 @@ try{cart=JSON.parse(sessionStorage.getItem('mn-cart')||'[]').filter(x=>perfumes.
 function bottle(p,suffix='card'){return '<img class="perfume-photo" src="'+p.images[0].src+'" alt="'+p.name+' — '+p.brand+'" '+(suffix==='hero'?'fetchpriority="high"':'loading="lazy"')+' decoding="async" width="960" height="1280">'}
 function gallery(p){return '<div class="gallery"><div class="product-art">'+bottle(p,'detail')+'</div><div class="gallery-thumbs" role="group" aria-label="Fotos de '+p.name+'">'+p.images.map((im,i)=>'<button class="'+(!i?'active':'')+'" data-photo="'+i+'" data-product="'+p.id+'" aria-label="Ver foto '+(i+1)+' de '+p.name+'" aria-pressed="'+(!i)+'"><img src="'+im.src+'" alt="" loading="lazy" width="72" height="96"></button>').join('')+'</div><p class="photo-caption">'+p.images[0].caption+'</p><div class="photo-credit"></div></div>'}
 $('#heroBottle').innerHTML=bottle(perfumes[2],'hero');
+// Two equal groups make a continuous CSS loop; only the first is in keyboard navigation.
+function renderPerfumeStrip(){
+  const group=duplicate=>`<div class="strip-group"${duplicate?' aria-hidden="true"':''}>${perfumes.map((p,i)=>`<button type="button" class="strip-item" data-detail="${p.id}" aria-label="Ver ${p.name}"${duplicate?' tabindex="-1"':''}><span class="strip-photo"><img src="${p.thumbnail}" alt="" width="240" height="240" decoding="async" ${!duplicate&&i<6?'loading="eager"':'loading="lazy"'}></span><span class="strip-name">${p.name}</span></button>`).join('')}</div>`;
+  $('#perfumeTrack').innerHTML=group(false)+group(true);
+}
+renderPerfumeStrip();
+$('#stripPause').addEventListener('click',()=>{
+  const strip=$('.perfume-strip'),button=$('#stripPause');
+  const paused=strip.dataset.paused!=='true';
+  strip.dataset.paused=String(paused);
+  button.setAttribute('aria-pressed',String(paused));
+  button.textContent=paused?'Continuar faixa':'Pausar faixa';
+});
 function renderProducts(filter='Todos'){$('#products').innerHTML=perfumes.filter(p=>filter==='Todos'||p.family===filter).map(p=>`<article class="card"><button class="product-art" style="--shade:${p.color}" data-detail="${p.id}" aria-label="Ver ${p.name}"><span class="tag">${p.tag}</span>${bottle(p)}<span class="arrow">↗</span></button><div class="product-summary"><div class="meta">${p.family.toUpperCase()} · ${p.volume}</div><h3><button data-detail="${p.id}">${p.name}</button></h3><p>${p.desc}</p><button class="more-link" data-detail="${p.id}" aria-label="Mais sobre ${p.name}">Mais ↗</button><div class="price-row"><strong>${money(p.price)}</strong><button data-add="${p.id}">Adicionar à sacola +</button></div></div></article>`).join('')}
 function show(html){body.innerHTML=html;if(!modal.open)modal.showModal()}
 function toast(message){$('#toast').textContent=message;$('#toast').style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').style.display='none',3500)}

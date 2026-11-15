@@ -51,4 +51,24 @@ input:not([type=checkbox]){background:#fcfbf8;color:var(--text);border-color:#d9
 .card .product-art .arrow .icon-arrow{display:block;width:17px;height:17px;max-width:none;filter:none;transform:none;transition:none}
 @media(max-width:600px){.card .product-art .arrow{right:6px;bottom:6px;width:28px;height:28px}.card .product-art .arrow .icon-arrow{width:15px;height:15px}}
 /* Fotos reais e galeria acessível do catálogo. */
+/* A lightweight photo strip: small local thumbnails, animated with CSS only. */
+.perfume-strip{padding:24px 0 20px;background:#f6f2e9;border-bottom:1px solid #ddd2bd;overflow:hidden}
+.strip-heading{margin:0 5% 17px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.strip-heading .eyebrow{margin:0 0 7px;font-size:9px;letter-spacing:2px;color:#8a6936}
+.strip-heading h2{font-size:29px;line-height:1.1;margin:0;color:#342e24}
+.strip-heading p:last-child{margin:7px 0 0;font-size:11px;color:#756d5d}
+.strip-pause{border:1px solid #c5b38d;border-radius:24px;padding:9px 15px;font-size:10px;color:#6c5127;white-space:nowrap;background:#fffaf1}
+.strip-pause:hover{background:#eee3cd;color:#40311b}
+.strip-viewport{overflow:hidden;padding:5px 0 8px}
+.strip-track{display:flex;width:max-content;animation:perfume-parade 48s linear infinite}
+.strip-group{display:flex;gap:16px;padding-right:16px;flex-shrink:0}
+.strip-item{flex:0 0 116px;width:116px;padding:0;text-align:center;color:#564935;border-radius:12px}
+.strip-photo{display:block;width:116px;height:116px;padding:4px;border:1px solid #d8c9aa;border-radius:13px;background:#fffdf8;box-shadow:0 3px 8px #6a512511;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.strip-photo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:9px}
+.strip-name{display:block;margin:8px 3px 0;font-size:10px;line-height:1.4;min-height:28px;font-weight:600}
+.strip-item:hover .strip-photo{border-color:#99763b;box-shadow:0 4px 12px #6a51252b}
+.perfume-strip[data-paused="true"] .strip-track,.strip-viewport:hover .strip-track,.strip-viewport:focus-within .strip-track{animation-play-state:paused}
+@keyframes perfume-parade{to{transform:translateX(-50%)}}
+@media(max-width:600px){.perfume-strip{padding-top:19px;padding-bottom:13px}.strip-heading{gap:12px;margin-bottom:13px}.strip-heading h2{font-size:25px}.strip-heading p:last-child{font-size:10px;max-width:210px}.strip-pause{font-size:9px;padding:9px 11px}.strip-item{flex-basis:96px;width:96px}.strip-photo{width:96px;height:96px}.strip-group{gap:12px;padding-right:12px}.strip-name{font-size:9px}.strip-track{animation-duration:44s}}
+@media(prefers-reduced-motion:reduce){.strip-track{animation:none}.strip-group[aria-hidden="true"]{display:none}.strip-viewport{overflow-x:auto;padding:5px 5% 12px;scrollbar-width:thin}.strip-pause{display:none}.strip-photo{transition:none}}
 .product-art .perfume-photo{display:block;width:100%;height:100%;object-fit:contain;max-width:100%;transition:none;filter:none;border-radius:inherit}.card .product-art{padding:0;overflow:hidden;aspect-ratio:3/4;height:auto}.card .product-art .tag{position:absolute;top:14px;left:14px;z-index:1;background:#fffdf0e8}.card .product-art:hover .perfume-photo{transform:scale(1.025)}.hero-art #heroBottle{width:min(90%,460px);height:85%;display:flex;align-items:center;z-index:1}.hero-art .perfume-photo{width:100%;height:100%;object-fit:contain;border-radius:10px;filter:drop-shadow(0 20px 25px #0002)}.hero-art .art-word{opacity:.15}.detail .gallery{min-width:0}.detail .gallery>.product-art{height:auto;aspect-ratio:3/4;padding:0;overflow:hidden;border-radius:8px}.gallery-thumbs{display:flex;gap:10px;overflow-x:auto;padding:14px 2px 4px}.gallery-thumbs button{flex:0 0 64px;border:2px solid transparent;padding:2px;border-radius:5px}.gallery-thumbs button.active{border-color:#94713b}.gallery-thumbs img{display:block;width:60px;height:80px;object-fit:cover;border-radius:3px}.photo-caption,.photo-credit{font-size:12px;line-height:1.5;color:#6d6452;margin:8px 0}.photo-credit a,.source-link{color:#735123;text-decoration:underline}.catalog-note{font-size:13px;line-height:1.7;max-width:850px;margin:0 0 25px;color:#71664f}.detail h2{overflow-wrap:anywhere}.product-summary .meta{line-height:1.5}.card .price-row{gap:12px;flex-wrap:wrap}.detail .eyebrow{line-height:1.6}button:focus-visible,a:focus-visible{outline:2px solid #a27b39;outline-offset:4px}@media(max-width:600px){.card .tag{font-size:8px;max-width:85%}.hero-art #heroBottle{height:85%;max-width:75%}.gallery-thumbs{gap:6px}.detail .gallery>.product-art{max-height:440px}}
