@@ -81,6 +81,12 @@ footer p,footer button,footer>small{font-size:11px}
 @media(max-width:380px){.brand-copy{font-size:18px}.actions{font-size:10px}}
 
 /* Identificação e atendimento da sacola pelo WhatsApp. */
+.seller-contact{margin:0 5% 60px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:30px;background:linear-gradient(115deg,#2f4b43,#293f42);border:1px solid #557a66;border-radius:10px}
+.seller-contact h2{font-size:32px;margin:9px 0 12px}
+.seller-contact p:not(.eyebrow){font-size:14px;line-height:1.8;color:var(--muted);max-width:520px;margin:0}
+.seller-contact .primary{flex-shrink:0;gap:14px;line-height:1.6;text-align:center}
+@media(max-width:900px){.seller-contact{align-items:flex-start;flex-direction:column;gap:20px;padding:25px}.seller-contact h2{font-size:28px}}
+@media(max-width:600px){.seller-contact{margin-bottom:40px;padding:22px}.seller-contact .primary{width:100%;justify-content:center;padding:15px;font-size:12px}}
 .customer-entry{padding:12px 0}
 .customer-entry h2{margin-bottom:12px}
 .customer-entry .primary{width:100%;justify-content:center;margin-top:8px;gap:12px}
