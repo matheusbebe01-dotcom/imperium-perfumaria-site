@@ -1,3 +1,4 @@
+@font-face{font-family:'Imperium Signature';src:url('assets/fonts/kings-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
 /* Verde da marca, prata e cinza azulado em fundos de cinza azulado mais escuros. */
 :root{--bg:#223137;--panel:#2c3e42;--gold:#5ce39a;--text:#e9f0ed;--muted:#afc0bd;--line:#43585b}
 body{background:var(--bg);color:var(--text)}
@@ -88,6 +89,9 @@ footer p,footer button,footer>small{font-size:11px}
 @media(max-width:900px){.seller-contact{align-items:flex-start;flex-direction:column;gap:20px;padding:25px}.seller-contact h2{font-size:28px}}
 @media(max-width:600px){.seller-contact{margin-bottom:40px;padding:22px}.seller-contact .primary{width:100%;justify-content:center;padding:15px;font-size:12px}}
 .customer-entry{padding:12px 0}
+footer .imperium-signature{font-family:'Imperium Signature','Palatino Linotype',cursive;font-size:56px;font-style:normal;font-weight:400;line-height:1.4;letter-spacing:.01em;color:#bce7ce;display:inline-block;position:relative;transform:rotate(-5deg);margin:4px 14px 12px;white-space:nowrap}
+footer .imperium-signature::after{content:'';position:absolute;left:5%;right:-8%;bottom:8px;height:15px;border-bottom:1px solid #78bf99;border-radius:50%;transform:rotate(-4deg);opacity:.8;pointer-events:none}
+@media(max-width:600px){footer .imperium-signature{font-size:48px;margin-left:2px}}
 .customer-entry h2{margin-bottom:12px}
 .customer-entry .primary{width:100%;justify-content:center;margin-top:8px;gap:12px}
 .customer-entry .entry-note{font-size:11px;line-height:1.7;color:var(--muted);margin:12px 0}
