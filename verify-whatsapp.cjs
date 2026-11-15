@@ -1,0 +1,46 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const app=fs.readFileSync(__dirname+'/app.js','utf8');
+function boot(saved){
+  const elements=new Map(),opens=[],data=new Map();
+  if(saved)data.set('imperium-customer',JSON.stringify(saved));
+  const storage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
+  function element(){return {innerHTML:'',textContent:'',value:'',checked:true,dataset:{},style:{},children:[],listeners:{},open:false,append(...x){this.children.push(...x)},addEventListener(k,f){this.listeners[k]=f},setAttribute(){},setCustomValidity(){},reportValidity(){},showModal(){this.open=true},close(){this.open=false},focus(){}}}
+  const document={querySelector(s){if(!elements.has(s))elements.set(s,element());return elements.get(s)},querySelectorAll(){return []},createElement:element,createTreeWalker(){return {nextNode(){return false}}},addEventListener(){},body:element()};
+  const ctx=vm.createContext({document,localStorage:storage,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},NodeFilter:{SHOW_TEXT:4},MutationObserver:class{observe(){}},window:{open(...args){opens.push(args)}},location:{},setTimeout(){},clearTimeout(){}});
+  vm.runInContext(app,ctx);
+  return {ctx,elements,opens,data,run:code=>vm.runInContext(code,ctx)};
+}
+const first=boot();
+assert.equal(first.elements.get('#modal').open,true);
+assert.ok(first.elements.get('#modalBody').innerHTML.includes('customerForm'));
+assert.ok(!first.elements.get('#modalBody').innerHTML.includes('type="password"'));
+first.elements.get('#customerName').value='Ana Maria & João';
+first.elements.get('#customerForm').onsubmit({preventDefault(){}});
+assert.equal(JSON.parse(first.data.get('imperium-customer')).name,'Ana Maria & João');
+assert.equal(first.elements.get('#modal').open,false);
+first.run('add(101);add(101);add(103);quote("prices")');
+assert.equal(first.opens.length,1);
+const [link,target,features]=first.opens[0],url=new URL(link),message=url.searchParams.get('text');
+assert.equal(url.hostname,'wa.me');
+assert.match(url.pathname,/^\/55\d{10,11}$/);
+assert.ok(message.includes('Meu nome é Ana Maria & João.'));
+assert.ok(message.includes('2x Fakhar — dourado'));
+assert.ok(message.includes('1x Now Intense'));
+assert.ok(message.includes('combinar os preços'));
+assert.ok(!message.includes('undefined'));
+assert.equal(target,'_blank');assert.equal(features,'noopener,noreferrer');
+first.run('quote("products")');
+assert.ok(new URL(first.opens[1][0]).searchParams.get('text').includes('conversar sobre esses produtos'));
+first.run('cart=[];quote()');assert.equal(first.opens.length,2);
+const returning=boot({name:'Cliente que voltou'});
+assert.equal(returning.elements.get('#modal').open,false);
+assert.equal(returning.elements.get('#account').textContent,'Meu perfil');
+returning.run('clearCustomer()');assert.ok(!returning.data.has('imperium-customer'));
+const guest=boot();guest.run('add(103);quote("products")');assert.equal(guest.opens.length,0);
+guest.elements.get('#customerName').value='Beatriz';guest.elements.get('#customerForm').onsubmit({preventDefault(){}});
+assert.equal(guest.opens.length,1);
+assert.ok(new URL(guest.opens[0][0]).searchParams.get('text').includes('Meu nome é Beatriz.'));
+assert.ok(new URL(guest.opens[0][0]).searchParams.get('text').includes('1x Now Intense'));
+console.log('OK: primeira entrada, nome salvo, retorno, visitante, sacola vazia, quantidades e links de negociação/dúvidas. Nenhuma mensagem foi enviada.');

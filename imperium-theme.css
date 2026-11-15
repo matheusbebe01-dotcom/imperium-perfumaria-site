@@ -79,3 +79,21 @@ footer p,footer button,footer>small{font-size:11px}
 @media(max-width:1100px){.brand-copy{font-size:23px}}
 @media(max-width:700px){.brand-copy{font-size:20px}.brand .brand-copy small{font-size:9px}.actions{font-size:11px}.product-summary h3{font-size:26px}.product-summary p{font-size:12px}.product-summary .meta{font-size:9px;line-height:1.6}.strip-name{font-size:10px}.strip-heading p:last-child{font-size:11px}.strip-pause{font-size:10px}.filters button{font-size:11px}.section-top>p{font-size:13px}}
 @media(max-width:380px){.brand-copy{font-size:18px}.actions{font-size:10px}}
+
+/* Identificação e atendimento da sacola pelo WhatsApp. */
+.customer-entry{padding:12px 0}
+.customer-entry h2{margin-bottom:12px}
+.customer-entry .primary{width:100%;justify-content:center;margin-top:8px;gap:12px}
+.customer-entry .entry-note{font-size:11px;line-height:1.7;color:var(--muted);margin:12px 0}
+.entry-browse{display:block;margin:15px auto 0;font-size:12px;color:#a9d9bd;text-decoration:underline;text-underline-offset:4px}
+.cart-conversation{margin-top:25px;padding-top:20px;border-top:1px solid var(--line)}
+.cart-conversation h3{font-size:27px;margin:0 0 8px}
+.quote-actions{display:grid;gap:12px;margin:18px 0}
+.quote-actions .primary,.quote-secondary{width:100%;justify-content:center;gap:12px;text-align:center;padding:16px 18px;line-height:1.6;font-size:13px}
+.quote-secondary{border:1px solid #6fa488;border-radius:2px;color:#b8eed0;background:#2d493b}
+.quote-secondary:hover{background:#3b5b49;color:#edfff4}
+.cart-conversation .quote-note{font-size:12px;color:var(--muted);line-height:1.7}
+.quote-preview{padding:12px 14px;border:1px solid var(--line);border-radius:5px;background:#263d37}
+.quote-preview summary{cursor:pointer;font-size:12px;color:#b4e8cb}
+.quote-preview pre{font:inherit;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;margin:14px 0 0;color:#d9e9e0}
+@media(max-width:600px){.cart-row{align-items:flex-start}.cart-row>div:first-child{min-width:0}.cart-row h3{overflow-wrap:anywhere}.quote-actions .primary,.quote-secondary{font-size:12px}.customer-entry h2{font-size:33px}}
