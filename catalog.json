@@ -1,0 +1,350 @@
+[
+  {
+    "id": 101,
+    "name": "Fakhar — dourado",
+    "brand": "Clive Dorris (inscrição na tampa)",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Frasco dourado com caixa Fakhar Lattafa. A tampa traz Clive Dorris; fabricante e versão precisam de confirmação.",
+    "verification": "Nome e volume lidos na embalagem. Não atribuímos as notas do Fakhar Gold de outra marca.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-03.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-01.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Fakhar — preto e prata",
+    "brand": "Marca a confirmar",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Frasco preto com detalhes prateados e caixa Fakhar Lattafa. Identificação pelo rótulo da foto.",
+    "verification": "Confirmar fabricante com o fornecedor antes de associar a uma versão de catálogo.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-08.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-01.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Now Intense",
+    "brand": "Rave",
+    "volume": "Volume a confirmar",
+    "family": "Fresco",
+    "notes": "Pepino · Melancia · Tangerina · Sálvia · Manjericão · Sândalo · Cedro · Couro",
+    "intensity": "Moderada",
+    "sweet": "Moderada",
+    "occasion": "Passeios e uso diurno, especialmente em clima ameno.",
+    "desc": "Frescor aquático e verde, com frutas e um fundo amadeirado.",
+    "verification": "Perfil pesquisado para Rave Now Intense. Volume da unidade enviada não legível na foto.",
+    "source": "https://muscorient.com/gb/lattafa/876-now-intense-rave-lattafa.html",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "RAVE",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-04.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-02.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/now-intense-web.png",
+        "credit": "Royals Perfume",
+        "url": "https://royalsperfume.de/ru/products/rave-now-intense-perfumed-water-for-men-100ml",
+        "caption": "Foto de referência da internet · apresentação de 100 ml; confirme o volume disponível."
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Now — preto",
+    "brand": "Rave",
+    "volume": "Volume a confirmar",
+    "family": "Amadeirado",
+    "notes": "Abacaxi · Groselha-preta · Bergamota · Maçã · Bétula · Patchouli · Almíscar",
+    "intensity": "Intensa",
+    "sweet": "Moderada",
+    "occasion": "Passeios, encontros e uso diário com presença.",
+    "desc": "Frutado com destaque para o abacaxi, evoluindo para madeiras e almíscar.",
+    "verification": "Perfil da página oficial Rave Now. Volume da unidade enviada ainda a confirmar.",
+    "source": "https://lattafa.com/product/rave-now/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "RAVE",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-11.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-02.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Khamraha",
+    "brand": "Mystical",
+    "volume": "Volume a confirmar",
+    "family": "Doce",
+    "notes": "Canela · Acordes pralinados · Baunilha · Âmbar · Almíscar",
+    "intensity": "Intensa",
+    "sweet": "Alta",
+    "occasion": "Encontros e noites mais frescas.",
+    "desc": "Perfil gourmand: doce, quente e envolvente, com especiarias e baunilha.",
+    "verification": "Perfil publicado por revendedor para Khamraha Mystical. Não equivale a uma confirmação da fórmula do fabricante.",
+    "source": "https://orientalbeautyf.com/brand/27-mystical",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "MYSTICAL",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-07.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-05.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-09.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Khamraha Qahwaa",
+    "brand": "Mystical",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Pirâmide olfativa desta apresentação ainda a confirmar.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar esta versão.",
+    "desc": "Versão Qahwaa da linha Khamraha Mystical, identificada no frasco e na caixa.",
+    "verification": "Nome e volume legíveis. As notas de Khamrah Qahwa Lattafa não foram transferidas para este produto.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-10.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-05.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-09.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/khamraha-qahwaa-web.jpg",
+        "credit": "Tienda La Fe",
+        "url": "https://www.tiendalafe.com/products/khamrah-qahwa-mystical-edp-50ml-h-aroma-similar-lattafa-khamrah-qahwa",
+        "caption": "Foto adicional da internet · Khamraha Qahwaa Mystical 50 ml."
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Phantasm Silver",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô prateado. Nome comercial Silver conferido em catálogo de revendedor.",
+    "verification": "Não é o Phantom de Rabanne. Aroma e fabricante desta versão precisam de confirmação.",
+    "source": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-15.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/phantasm-silver-web.png",
+        "credit": "Farmácia Amor",
+        "url": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
+        "caption": "Foto adicional da internet · Phantasm Silver 50 ml."
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Phantasm — dourado",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô dourado, com embalagem individual.",
+    "verification": "Dourado descreve a cor do frasco. Não confirma composição ou nome de uma edição.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-12.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Phantasm — bronze",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô bronze, fotografado com sua caixa.",
+    "verification": "Bronze descreve a cor do frasco. Não confirma composição ou nome de uma edição.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-13.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-06.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Asad Zanzibar",
+    "brand": "Lattafa (conforme rótulo)",
+    "volume": "30 ml",
+    "family": "Oriental",
+    "notes": "Lavanda · Pimenta-preta · Água de coco salgada · Íris · Baunilha · Incenso",
+    "intensity": "Moderada",
+    "sweet": "Moderada",
+    "occasion": "Passeios e encontros em clima ameno.",
+    "desc": "Perfil cremoso e tropical, com coco salgado, especiarias e baunilha.",
+    "verification": "Perfil da página oficial Asad Zanzibar. A foto identifica a apresentação de 30 ml; procedência deve ser confirmada com o fornecedor.",
+    "source": "https://lattafa.com/product/asad-zanzibar/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "LATTAFA (CONFORME RÓTULO)",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-17.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Asad — frasco avermelhado",
+    "brand": "Lattafa (conforme rótulo)",
+    "volume": "Volume a confirmar",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "A embalagem mostra Asad, sem subtítulo legível. A cor sozinha não permite confirmar a edição.",
+    "verification": "Não classificamos como Bourbon nem aplicamos a fórmula do Asad preto. Solicitar foto do verso e da base para confirmar a versão.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-18.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Asada",
+    "brand": "Mystical",
+    "volume": "30 ml",
+    "family": "Oriental",
+    "notes": "Acordes especiados · Madeiras · Baunilha · Âmbar",
+    "intensity": "Intensa",
+    "sweet": "Moderada",
+    "occasion": "Noites, encontros e eventos em dias mais frios.",
+    "desc": "Perfil quente e especiado, com madeiras e um fundo abaunilhado.",
+    "verification": "Nome e volume lidos na caixa; perfil descrito por revendedores de Asada Mystical 30 ml.",
+    "source": "https://www.eclat.sn/produit/asada-mystical-parfum-homme-30ml/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "MYSTICAL",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-19.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  }
+]

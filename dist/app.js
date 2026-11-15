@@ -1,36 +1,379 @@
 // Configure somente quando o vendedor fornecer o número com DDI e DDD.
 const STORE = { whatsapp: '' };
 const perfumes = [
-{id:1,name:'Noir Absolu',family:'Amadeirado',color:'#6a5630',glass:'#9b7635',price:249.90,tag:'ASSINATURA DA CASA',desc:'Intenso, elegante e impossível de esquecer.',notes:'Bergamota · Cedro · Âmbar',intensity:'Intensa',occasion:'Noites especiais e encontros',sweet:'Baixa',volume:'100 ml'},
-{id:2,name:'Brise Marine',family:'Fresco',color:'#334c48',glass:'#648f85',price:189.90,tag:'FRESCOR ESSENCIAL',desc:'A leveza de uma brisa. A energia de um novo dia.',notes:'Limão · Notas marinhas · Almíscar',intensity:'Leve',occasion:'Trabalho e dias de calor',sweet:'Baixa',volume:'100 ml'},
-{id:3,name:'Oud Royal',family:'Oriental',color:'#5b4233',glass:'#a5693d',price:319.90,tag:'PRESENÇA MARCANTE',desc:'Especiarias envolventes com um fundo profundo.',notes:'Açafrão · Oud · Sândalo',intensity:'Intensa',occasion:'Eventos e noites mais frias',sweet:'Moderada',volume:'100 ml'},
-{id:4,name:'Velours Doré',family:'Doce',color:'#594536',glass:'#b88b53',price:229.90,tag:'TOQUE ENVOLVENTE',desc:'O calor da baunilha em uma composição sedutora.',notes:'Pera · Baunilha · Fava tonka',intensity:'Moderada',occasion:'Encontros e momentos especiais',sweet:'Alta',volume:'75 ml'},
-{id:5,name:'Bois Sauvage',family:'Amadeirado',color:'#424b31',glass:'#6d7b44',price:269.90,tag:'ESPÍRITO LIVRE',desc:'Madeiras secas e um frescor de personalidade.',notes:'Pimenta · Vetiver · Patchouli',intensity:'Moderada',occasion:'Passeios e uso diário',sweet:'Baixa',volume:'100 ml'},
-{id:6,name:'Lumière',family:'Fresco',color:'#555748',glass:'#b0ad7c',price:199.90,tag:'LEVE POR NATUREZA',desc:'Cítrico, luminoso e naturalmente versátil.',notes:'Mandarina · Neroli · Musk',intensity:'Leve',occasion:'Dia a dia e ambientes abertos',sweet:'Suave',volume:'75 ml'}
+  {
+    "id": 101,
+    "name": "Fakhar — dourado",
+    "brand": "Clive Dorris (inscrição na tampa)",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Frasco dourado com caixa Fakhar Lattafa. A tampa traz Clive Dorris; fabricante e versão precisam de confirmação.",
+    "verification": "Nome e volume lidos na embalagem. Não atribuímos as notas do Fakhar Gold de outra marca.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-03.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-01.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "name": "Fakhar — preto e prata",
+    "brand": "Marca a confirmar",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Frasco preto com detalhes prateados e caixa Fakhar Lattafa. Identificação pelo rótulo da foto.",
+    "verification": "Confirmar fabricante com o fornecedor antes de associar a uma versão de catálogo.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-08.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-01.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Now Intense",
+    "brand": "Rave",
+    "volume": "Volume a confirmar",
+    "family": "Fresco",
+    "notes": "Pepino · Melancia · Tangerina · Sálvia · Manjericão · Sândalo · Cedro · Couro",
+    "intensity": "Moderada",
+    "sweet": "Moderada",
+    "occasion": "Passeios e uso diurno, especialmente em clima ameno.",
+    "desc": "Frescor aquático e verde, com frutas e um fundo amadeirado.",
+    "verification": "Perfil pesquisado para Rave Now Intense. Volume da unidade enviada não legível na foto.",
+    "source": "https://muscorient.com/gb/lattafa/876-now-intense-rave-lattafa.html",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "RAVE",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-04.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-02.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/now-intense-web.png",
+        "credit": "Royals Perfume",
+        "url": "https://royalsperfume.de/ru/products/rave-now-intense-perfumed-water-for-men-100ml",
+        "caption": "Foto de referência da internet · apresentação de 100 ml; confirme o volume disponível."
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Now — preto",
+    "brand": "Rave",
+    "volume": "Volume a confirmar",
+    "family": "Amadeirado",
+    "notes": "Abacaxi · Groselha-preta · Bergamota · Maçã · Bétula · Patchouli · Almíscar",
+    "intensity": "Intensa",
+    "sweet": "Moderada",
+    "occasion": "Passeios, encontros e uso diário com presença.",
+    "desc": "Frutado com destaque para o abacaxi, evoluindo para madeiras e almíscar.",
+    "verification": "Perfil da página oficial Rave Now. Volume da unidade enviada ainda a confirmar.",
+    "source": "https://lattafa.com/product/rave-now/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "RAVE",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-11.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-02.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Khamraha",
+    "brand": "Mystical",
+    "volume": "Volume a confirmar",
+    "family": "Doce",
+    "notes": "Canela · Acordes pralinados · Baunilha · Âmbar · Almíscar",
+    "intensity": "Intensa",
+    "sweet": "Alta",
+    "occasion": "Encontros e noites mais frescas.",
+    "desc": "Perfil gourmand: doce, quente e envolvente, com especiarias e baunilha.",
+    "verification": "Perfil publicado por revendedor para Khamraha Mystical. Não equivale a uma confirmação da fórmula do fabricante.",
+    "source": "https://orientalbeautyf.com/brand/27-mystical",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "MYSTICAL",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-07.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-05.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-09.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Khamraha Qahwaa",
+    "brand": "Mystical",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Pirâmide olfativa desta apresentação ainda a confirmar.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar esta versão.",
+    "desc": "Versão Qahwaa da linha Khamraha Mystical, identificada no frasco e na caixa.",
+    "verification": "Nome e volume legíveis. As notas de Khamrah Qahwa Lattafa não foram transferidas para este produto.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-10.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-05.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-09.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/khamraha-qahwaa-web.jpg",
+        "credit": "Tienda La Fe",
+        "url": "https://www.tiendalafe.com/products/khamrah-qahwa-mystical-edp-50ml-h-aroma-similar-lattafa-khamrah-qahwa",
+        "caption": "Foto adicional da internet · Khamraha Qahwaa Mystical 50 ml."
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Phantasm Silver",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô prateado. Nome comercial Silver conferido em catálogo de revendedor.",
+    "verification": "Não é o Phantom de Rabanne. Aroma e fabricante desta versão precisam de confirmação.",
+    "source": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-15.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/phantasm-silver-web.png",
+        "credit": "Farmácia Amor",
+        "url": "https://www.farmaciaamorpy.com/item/onlyou-perfume-colletion-50ml-refb2341-phantasm-silver-051389",
+        "caption": "Foto adicional da internet · Phantasm Silver 50 ml."
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Phantasm — dourado",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô dourado, com embalagem individual.",
+    "verification": "Dourado descreve a cor do frasco. Não confirma composição ou nome de uma edição.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-12.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "name": "Phantasm — bronze",
+    "brand": "Linha Phantasm",
+    "volume": "50 ml",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "Eau de Parfum em frasco robô bronze, fotografado com sua caixa.",
+    "verification": "Bronze descreve a cor do frasco. Não confirma composição ou nome de uma edição.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-13.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-06.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      },
+      {
+        "src": "assets/perfumes/cliente-16.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Asad Zanzibar",
+    "brand": "Lattafa (conforme rótulo)",
+    "volume": "30 ml",
+    "family": "Oriental",
+    "notes": "Lavanda · Pimenta-preta · Água de coco salgada · Íris · Baunilha · Incenso",
+    "intensity": "Moderada",
+    "sweet": "Moderada",
+    "occasion": "Passeios e encontros em clima ameno.",
+    "desc": "Perfil cremoso e tropical, com coco salgado, especiarias e baunilha.",
+    "verification": "Perfil da página oficial Asad Zanzibar. A foto identifica a apresentação de 30 ml; procedência deve ser confirmada com o fornecedor.",
+    "source": "https://lattafa.com/product/asad-zanzibar/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "LATTAFA (CONFORME RÓTULO)",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-17.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Asad — frasco avermelhado",
+    "brand": "Lattafa (conforme rótulo)",
+    "volume": "Volume a confirmar",
+    "family": "A confirmar",
+    "notes": "Composição desta versão ainda não confirmada.",
+    "intensity": "A confirmar",
+    "sweet": "A confirmar",
+    "occasion": "Consulte a loja para experimentar e escolher a ocasião.",
+    "desc": "A embalagem mostra Asad, sem subtítulo legível. A cor sozinha não permite confirmar a edição.",
+    "verification": "Não classificamos como Bourbon nem aplicamos a fórmula do Asad preto. Solicitar foto do verso e da base para confirmar a versão.",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "CONHEÇA A VERSÃO",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-18.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Asada",
+    "brand": "Mystical",
+    "volume": "30 ml",
+    "family": "Oriental",
+    "notes": "Acordes especiados · Madeiras · Baunilha · Âmbar",
+    "intensity": "Intensa",
+    "sweet": "Moderada",
+    "occasion": "Noites, encontros e eventos em dias mais frios.",
+    "desc": "Perfil quente e especiado, com madeiras e um fundo abaunilhado.",
+    "verification": "Nome e volume lidos na caixa; perfil descrito por revendedores de Asada Mystical 30 ml.",
+    "source": "https://www.eclat.sn/produit/asada-mystical-parfum-homme-30ml/",
+    "color": "#6a5630",
+    "price": null,
+    "tag": "MYSTICAL",
+    "images": [
+      {
+        "src": "assets/perfumes/cliente-19.jpg",
+        "caption": "Foto do cliente · produto e embalagem."
+      },
+      {
+        "src": "assets/perfumes/cliente-14.jpg",
+        "caption": "Foto do cliente · outra composição com o produto."
+      }
+    ]
+  }
 ];
-const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const money=n=>n==null?'Sob consulta':n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 const $=s=>document.querySelector(s);
 const modal=$('#modal'), body=$('#modalBody');
 let cart=[],demoUser=null,toastTimer;
 try{cart=JSON.parse(sessionStorage.getItem('mn-cart')||'[]').filter(x=>perfumes.some(p=>p.id===x.id)&&Number.isInteger(x.qty)&&x.qty>0&&x.qty<=20);demoUser=JSON.parse(sessionStorage.getItem('mn-demo-user')||'null')}catch{}
-function bottle(p,suffix='card'){const id='b'+p.id+suffix;return `<svg viewBox="0 0 240 330" role="img" aria-label="Ilustração do frasco ${p.name}"><defs><linearGradient id="${id}" x1="0" x2="1"><stop stop-color="#151713"/><stop offset=".16" stop-color="${p.glass}"/><stop offset=".45" stop-color="#383726"/><stop offset=".8" stop-color="${p.glass}"/><stop offset="1" stop-color="#161811"/></linearGradient><linearGradient id="cap${id}"><stop stop-color="#151612"/><stop offset=".45" stop-color="#464337"/><stop offset=".6" stop-color="#151612"/><stop offset="1" stop-color="#33332a"/></linearGradient></defs><ellipse cx="120" cy="312" rx="77" ry="9" fill="#000" opacity=".3"/><rect x="86" y="28" width="68" height="58" rx="5" fill="url(#cap${id})" stroke="#6d6247" stroke-width=".7"/><path d="M91 39h58M91 46h58M91 53h58M91 60h58M91 67h58" stroke="#a88a4e" opacity=".16"/><rect x="94" y="86" width="52" height="14" fill="#a28c57"/><rect x="48" y="100" width="144" height="205" rx="15" fill="url(#${id})" stroke="#bda674" stroke-opacity=".5"/><rect x="56" y="110" width="128" height="185" rx="11" fill="none" stroke="#d6c896" stroke-opacity=".2"/><path d="M63 120v155" stroke="#fff" stroke-opacity=".18" stroke-width="3"/><rect x="64" y="153" width="112" height="100" fill="#131510" stroke="#c8ac6a" stroke-width=".8"/><text x="120" y="175" text-anchor="middle" fill="#b8a16c" font-size="7" letter-spacing="2">MAISON NOIR</text><text x="120" y="206" text-anchor="middle" fill="#dfd0a6" font-family="Georgia" font-size="16">${p.name}</text><text x="120" y="230" text-anchor="middle" fill="#9a947d" font-size="6" letter-spacing="1.6">EAU DE PARFUM</text><text x="120" y="281" text-anchor="middle" fill="#d4c598" font-size="7">${p.volume}</text></svg>`}
-$('#heroBottle').innerHTML=bottle(perfumes[0],'hero');
+function bottle(p,suffix='card'){return '<img class="perfume-photo" src="'+p.images[0].src+'" alt="'+p.name+' — '+p.brand+'" '+(suffix==='hero'?'fetchpriority="high"':'loading="lazy"')+' decoding="async" width="960" height="1280">'}
+function gallery(p){return '<div class="gallery"><div class="product-art">'+bottle(p,'detail')+'</div><div class="gallery-thumbs" role="group" aria-label="Fotos de '+p.name+'">'+p.images.map((im,i)=>'<button class="'+(!i?'active':'')+'" data-photo="'+i+'" data-product="'+p.id+'" aria-label="Ver foto '+(i+1)+' de '+p.name+'" aria-pressed="'+(!i)+'"><img src="'+im.src+'" alt="" loading="lazy" width="72" height="96"></button>').join('')+'</div><p class="photo-caption">'+p.images[0].caption+'</p><div class="photo-credit"></div></div>'}
+$('#heroBottle').innerHTML=bottle(perfumes[2],'hero');
 function renderProducts(filter='Todos'){$('#products').innerHTML=perfumes.filter(p=>filter==='Todos'||p.family===filter).map(p=>`<article class="card"><button class="product-art" style="--shade:${p.color}" data-detail="${p.id}" aria-label="Ver ${p.name}"><span class="tag">${p.tag}</span>${bottle(p)}<span class="arrow">↗</span></button><div class="product-summary"><div class="meta">${p.family.toUpperCase()} · ${p.volume}</div><h3><button data-detail="${p.id}">${p.name}</button></h3><p>${p.desc}</p><button class="more-link" data-detail="${p.id}" aria-label="Mais sobre ${p.name}">Mais ↗</button><div class="price-row"><strong>${money(p.price)}</strong><button data-add="${p.id}">Adicionar à sacola +</button></div></div></article>`).join('')}
 function show(html){body.innerHTML=html;if(!modal.open)modal.showModal()}
 function toast(message){$('#toast').textContent=message;$('#toast').style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').style.display='none',3500)}
 function saveCart(){try{sessionStorage.setItem('mn-cart',JSON.stringify(cart))}catch{}$('#count').textContent=cart.reduce((n,x)=>n+x.qty,0)}
 function add(id){let item=cart.find(x=>x.id===id);if(item&&item.qty>=20)return toast('Limite de 20 unidades por perfume.');if(item)item.qty++;else cart.push({id,qty:1});saveCart();toast('Perfume adicionado à sacola.')}
-function detail(id){const p=perfumes.find(x=>x.id===id);show(`<div class="detail"><div class="product-art" style="--shade:${p.color}">${bottle(p,'detail')}</div><div><p class="eyebrow">${p.family.toUpperCase()} · EAU DE PARFUM</p><h2>${p.name}</h2><p>${p.desc}</p><div class="notes">Notas: ${p.notes}<br>Intensidade: ${p.intensity}<br>Doçura: ${p.sweet}<br>Ideal para: ${p.occasion}<br>Volume: ${p.volume}</div><h3>${money(p.price)}</h3><button class="primary" data-add="${p.id}">Adicionar à sacola +</button></div></div><p class="notice">Produto, preço e descrição fictícios. Este espaço poderá receber fotos ou vídeos reais do catálogo.</p>`)}
-function showCart(){show(`<p class="eyebrow">SEUS ESCOLHIDOS</p><h2>Minha sacola</h2>${cart.length?cart.map(x=>{const p=perfumes.find(p=>p.id===x.id);return `<div class="cart-row"><div><h3>${p.name}</h3><p>${money(p.price)} · ${p.volume}</p></div><div class="qty"><button data-qty="${p.id}" data-delta="-1" aria-label="Diminuir ${p.name}">−</button><span>${x.qty}</span><button data-qty="${p.id}" data-delta="1" aria-label="Aumentar ${p.name}">+</button></div><strong>${money(p.price*x.qty)}</strong></div>`}).join('')+`<div class="total"><span>Subtotal</span><strong>${money(cart.reduce((n,x)=>n+perfumes.find(p=>p.id===x.id).price*x.qty,0))}</strong></div><p>Frete e prazo serão calculados na versão com checkout integrado.</p><button class="primary" id="checkout">Continuar compra ↗</button>`:'<p class="empty">Sua sacola está esperando sua próxima assinatura.</p><button class="primary" id="browse">Explorar coleção ↗</button>'}`)}
+function detail(id){const p=perfumes.find(x=>x.id===id);if(!p)return;show(`<div class="detail">${gallery(p)}<div><p class="eyebrow">${p.brand} · EAU DE PARFUM</p><h2>${p.name}</h2><p>${p.desc}</p><div class="notes">Aroma: ${p.family}<br>Notas / acordes: ${p.notes}<br>Intensidade sugerida: ${p.intensity}<br>Doçura: ${p.sweet}<br>Sugestão de ocasião: ${p.occasion}<br>Volume: ${p.volume}</div><h3>Sob consulta</h3><button class="primary" data-add="${p.id}">Adicionar à sacola +</button><p class="notice">${p.verification}</p>${p.source?'<a class="source-link" href="'+p.source+'" target="_blank" rel="noopener noreferrer">Consultar referência da descrição ↗</a>':''}</div></div><p class="notice">Ocasiões são sugestões editoriais. Intensidade e percepção do aroma variam com a pele e a aplicação. Consulte preço e disponibilidade com a loja.</p>`)}
+function showCart(){show(`<p class="eyebrow">SEUS ESCOLHIDOS</p><h2>Minha sacola</h2>${cart.length?cart.map(x=>{const p=perfumes.find(p=>p.id===x.id);return `<div class="cart-row"><div><h3>${p.name}</h3><p>${money(p.price)} · ${p.volume}</p></div><div class="qty"><button data-qty="${p.id}" data-delta="-1" aria-label="Diminuir ${p.name}">−</button><span>${x.qty}</span><button data-qty="${p.id}" data-delta="1" aria-label="Aumentar ${p.name}">+</button></div><strong>${money(p.price==null?null:p.price*x.qty)}</strong></div>`}).join('')+`<div class="total"><span>Subtotal</span><strong>${cart.some(x=>perfumes.find(p=>p.id===x.id).price==null)?'Sob consulta':money(cart.reduce((n,x)=>n+perfumes.find(p=>p.id===x.id).price*x.qty,0))}</strong></div><p>Preços, disponibilidade, frete e prazo devem ser confirmados com a loja.</p><button class="primary" id="checkout">Continuar compra ↗</button>`:'<p class="empty">Sua sacola está esperando sua próxima assinatura.</p><button class="primary" id="browse">Explorar coleção ↗</button>'}`)}
 function account(mode='register'){if(demoUser){show(`<p class="eyebrow">SEU ESPAÇO</p><h2>Bem-vindo à Maison Noir.</h2><p id="userInfo"></p><p class="notice">Perfil demonstrativo salvo somente nesta aba. Nenhuma senha foi armazenada, nenhum e-mail foi enviado e não existe autenticação real nesta prévia.</p><button class="primary" id="logout">Sair da demonstração</button>`);$('#userInfo').textContent=`${demoUser.name} · ${demoUser.email} · ${demoUser.phone}`;return}const register=mode==='register';show(`<div class="form-wrap"><p class="eyebrow">CLUBE MAISON NOIR</p><div class="tabs"><button data-auth="register" class="${register?'active':''}">Criar conta</button><button data-auth="login" class="${!register?'active':''}">Entrar</button></div><h2>${register?'Seu estilo começa aqui.':'Bom ter você de volta.'}</h2><p class="notice">Demonstração: use dados fictícios e uma senha de teste. Não há envio ou armazenamento da senha.</p><form id="authForm"><label>E-mail<input type="email" name="email" required autocomplete="off" placeholder="voce@exemplo.com" maxlength="150"></label><label>Senha de teste<input type="password" name="password" required minlength="8" autocomplete="off" placeholder="Pelo menos 8 caracteres"></label>${register?'<label>Nome completo<input name="name" required minlength="3" maxlength="100" autocomplete="off" placeholder="Como podemos chamar você?"></label><label>Telefone com DDD<input name="phone" type="tel" required pattern="[+0-9 ()-]{10,20}" maxlength="20" autocomplete="off" placeholder="(11) 99999-9999"></label><label class="check"><input type="checkbox" name="marketing"> Quero receber lançamentos e descontos por e-mail (opcional).</label>':''}<button class="primary" type="submit">${register?'Criar perfil de demonstração':'Testar entrada'} ↗</button></form><p>Na versão final: confirmação de e-mail, recuperação de senha e gestão das preferências de comunicação.</p></div>`);$('#authForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);if(!register){toast('Login real depende do serviço de autenticação. Crie um perfil demonstrativo.');account('register');return}demoUser={name:f.get('name').trim(),email:f.get('email').trim(),phone:f.get('phone').trim(),marketing:f.get('marketing')==='on'};e.target.reset();try{sessionStorage.setItem('mn-demo-user',JSON.stringify(demoUser))}catch{}$('#account').textContent='Minha conta •';account();toast('Perfil de demonstração criado.')}}
 function contact(){if(/^\d{12,15}$/.test(STORE.whatsapp)){window.open('https://wa.me/'+STORE.whatsapp+'?text='+encodeURIComponent('Olá! Gostaria de saber mais sobre os perfumes.'),'_blank','noopener,noreferrer')}else show('<p class="eyebrow">ATENDIMENTO</p><h2>Vamos conversar?</h2><p>O botão está reservado para o WhatsApp da loja. Assim que o vendedor informar seu número, ele abrirá a conversa diretamente.</p><p class="notice">Número comercial ainda não configurado neste protótipo.</p>')}
-document.addEventListener('click',e=>{const el=e.target.closest('button');if(!el)return;if(el.hasAttribute('data-detail'))detail(Number(el.dataset.detail));if(el.hasAttribute('data-add'))add(Number(el.dataset.add));if(el.hasAttribute('data-contact'))contact();if(el.hasAttribute('data-filter')){document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===el));renderProducts(el.dataset.filter)}if(el.hasAttribute('data-auth'))account(el.dataset.auth);if(el.hasAttribute('data-qty')){const item=cart.find(x=>x.id===Number(el.dataset.qty));item.qty=Math.min(20,item.qty+Number(el.dataset.delta));cart=cart.filter(x=>x.qty>0);saveCart();showCart()}if(el.id==='account'||el.id==='join')account();if(el.id==='bag')showCart();if(el.id==='browse'){modal.close();location.hash='colecao'}if(el.id==='logout'){demoUser=null;try{sessionStorage.removeItem('mn-demo-user')}catch{}$('#account').textContent='Minha conta';account()}if(el.id==='checkout'){if(!demoUser){toast('Crie seu perfil demonstrativo para continuar.');account();return}show('<p class="eyebrow">CHECKOUT DEMONSTRATIVO</p><h2>Pronto para o próximo passo.</h2><p>Aqui o cliente informará o endereço, escolherá o frete e pagará por Pix ou cartão em um checkout seguro.</p><p class="notice">Nenhum pedido ou pagamento foi efetuado. Na versão final, o servidor confirmará o pagamento e notificará o vendedor automaticamente.</p><button class="primary" data-contact>Falar com a loja ↗</button>')}});
+document.addEventListener('click',e=>{const el=e.target.closest('button');if(!el)return;if(el.hasAttribute('data-photo')){const p=perfumes.find(x=>x.id===Number(el.dataset.product));const im=p.images[Number(el.dataset.photo)];const g=el.closest('.gallery');g.querySelector('.perfume-photo').src=im.src;g.querySelector('.photo-caption').textContent=im.caption;g.querySelectorAll('[data-photo]').forEach(b=>{b.classList.toggle('active',b===el);b.setAttribute('aria-pressed',String(b===el))});const c=g.querySelector('.photo-credit');c.replaceChildren();if(im.url){const a=document.createElement('a');a.href=im.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Fonte: '+im.credit+' ↗';c.append(a)}return;}if(el.hasAttribute('data-detail'))detail(Number(el.dataset.detail));if(el.hasAttribute('data-add'))add(Number(el.dataset.add));if(el.hasAttribute('data-contact'))contact();if(el.hasAttribute('data-filter')){document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===el));renderProducts(el.dataset.filter)}if(el.hasAttribute('data-auth'))account(el.dataset.auth);if(el.hasAttribute('data-qty')){const item=cart.find(x=>x.id===Number(el.dataset.qty));item.qty=Math.min(20,item.qty+Number(el.dataset.delta));cart=cart.filter(x=>x.qty>0);saveCart();showCart()}if(el.id==='account'||el.id==='join')account();if(el.id==='bag')showCart();if(el.id==='browse'){modal.close();location.hash='colecao'}if(el.id==='logout'){demoUser=null;try{sessionStorage.removeItem('mn-demo-user')}catch{}$('#account').textContent='Minha conta';account()}if(el.id==='checkout'){if(!demoUser){toast('Crie seu perfil demonstrativo para continuar.');account();return}show('<p class="eyebrow">CHECKOUT DEMONSTRATIVO</p><h2>Pronto para o próximo passo.</h2><p>Aqui o cliente informará o endereço, escolherá o frete e pagará por Pix ou cartão em um checkout seguro.</p><p class="notice">Nenhum pedido ou pagamento foi efetuado. Na versão final, o servidor confirmará o pagamento e notificará o vendedor automaticamente.</p><button class="primary" data-contact>Falar com a loja ↗</button>')}});
 $('.close').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal){const r=modal.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)modal.close()}});renderProducts();saveCart();
 
 const assistantPanel=$('#assistantPanel'),messages=$('#assistantMessages');
 $('#assistantLaunch').onclick=()=>{assistantPanel.hidden=!assistantPanel.hidden;if(!assistantPanel.hidden)$('#assistantInput').focus()};
 $('#assistantClose').onclick=()=>assistantPanel.hidden=true;
-function recommend(request){const msg=document.createElement('div');msg.className='assistant-message user';msg.textContent=request;messages.append(msg);const text=request.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');const avoidSweet=/nao.*doc|sem.*doc|pouco.*doc/.test(text);let criteria=[];if(/doc|baunilha|adocic/.test(text))criteria.push(p=>avoidSweet?p.sweet==='Baixa':p.family==='Doce');if(/leve|fresc|calor|verao|trabalh|dia a dia|citr/.test(text))criteria.push(p=>p.family==='Fresco');if(/forte|intens|marcante/.test(text))criteria.push(p=>p.intensity==='Intensa');if(/noite|noturn|sair|festa|encontro/.test(text))criteria.push(p=>/Noites|noites|Encontros/.test(p.occasion));if(/madeir|cedro|vetiver/.test(text))criteria.push(p=>p.family==='Amadeirado');if(/orient|especiar|oud/.test(text))criteria.push(p=>p.family==='Oriental');if(/barat|econom|preco|acessivel/.test(text))criteria.push(p=>p.price<210);const budget=text.match(/(?:ate|menos de|maximo(?: de)?)\s*(?:r\$\s*)?(\d+(?:[.,]\d{1,2})?)/);if(budget)criteria.push(p=>p.price<=Number(budget[1].replace(',','.')));const response=document.createElement('div');response.className='assistant-message';if(!criteria.length){response.textContent=/ola|oi|bom dia|ajuda/.test(text)?'Olá! Você prefere um perfume doce, fresco, amadeirado ou intenso? É para o dia ou para a noite?':'Posso ajudar com a escolha de perfumes. Conte se prefere doce, fresco, amadeirado, intenso ou diga a ocasião e o orçamento.'}else{let chosen=perfumes.filter(p=>criteria.every(fn=>fn(p)));if(!chosen.length){response.textContent='Não encontrei um perfume que combine com todas essas preferências. Quer tentar uma fragrância mais leve, mudar o orçamento ou conversar com a loja?';const contactBtn=document.createElement('button');contactBtn.className='assistant-result';contactBtn.textContent='Conversar com a loja ↗';contactBtn.onclick=contact;response.append(contactBtn)}else{response.textContent='Estas opções combinam com o que você pediu:';chosen.slice(0,3).forEach(p=>{const btn=document.createElement('button');btn.className='assistant-result';btn.dataset.detail=p.id;btn.textContent=p.name+' · '+money(p.price)+' — Mais ↗';const small=document.createElement('small');small.textContent=p.desc;btn.append(small);response.append(btn)});const note=document.createElement('small');note.textContent='Sugestões baseadas nas descrições fictícias desta prévia.';response.append(note)}}messages.append(response);while(messages.children.length>25)messages.firstElementChild.remove();messages.scrollTop=messages.scrollHeight}
+function recommend(request){const msg=document.createElement('div');msg.className='assistant-message user';msg.textContent=request;messages.append(msg);const text=request.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');const avoidSweet=/nao.*doc|sem.*doc|pouco.*doc/.test(text);let criteria=[];if(/doc|baunilha|adocic/.test(text))criteria.push(p=>avoidSweet?p.sweet==='Baixa':p.family==='Doce');if(/leve|fresc|calor|verao|trabalh|dia a dia|citr/.test(text))criteria.push(p=>p.family==='Fresco');if(/forte|intens|marcante/.test(text))criteria.push(p=>p.intensity==='Intensa');if(/noite|noturn|sair|festa|encontro/.test(text))criteria.push(p=>/noite|encontro|evento/i.test(p.occasion)&&p.family!=='A confirmar');if(/madeir|cedro|vetiver/.test(text))criteria.push(p=>p.family==='Amadeirado');if(/orient|especiar|oud/.test(text))criteria.push(p=>p.family==='Oriental');if(/barat|econom|preco|acessivel/.test(text))criteria.push(p=>p.price!=null&&p.price<210);const budget=text.match(/(?:ate|menos de|maximo(?: de)?)\s*(?:r\$\s*)?(\d+(?:[.,]\d{1,2})?)/);if(budget)criteria.push(p=>p.price!=null&&p.price<=Number(budget[1].replace(',','.')));const response=document.createElement('div');response.className='assistant-message';if(!criteria.length){response.textContent=/ola|oi|bom dia|ajuda/.test(text)?'Olá! Você prefere um perfume doce, fresco, amadeirado ou intenso? É para o dia ou para a noite?':'Posso ajudar com a escolha de perfumes. Conte se prefere doce, fresco, amadeirado, intenso ou diga a ocasião e o orçamento.'}else{let chosen=perfumes.filter(p=>criteria.every(fn=>fn(p)));if(!chosen.length){response.textContent='Não encontrei um perfume que combine com todas essas preferências. Quer tentar uma fragrância mais leve, mudar o orçamento ou conversar com a loja?';const contactBtn=document.createElement('button');contactBtn.className='assistant-result';contactBtn.textContent='Conversar com a loja ↗';contactBtn.onclick=contact;response.append(contactBtn)}else{response.textContent='Estas opções combinam com o que você pediu:';chosen.slice(0,3).forEach(p=>{const btn=document.createElement('button');btn.className='assistant-result';btn.dataset.detail=p.id;btn.textContent=p.name+' · '+money(p.price)+' — Mais ↗';const small=document.createElement('small');small.textContent=p.desc;btn.append(small);response.append(btn)});const note=document.createElement('small');note.textContent='Sugestões baseadas nos perfis pesquisados. Versões com aroma a confirmar não recebem recomendações olfativas.';response.append(note)}}messages.append(response);while(messages.children.length>25)messages.firstElementChild.remove();messages.scrollTop=messages.scrollHeight}
 $('#assistantForm').onsubmit=e=>{e.preventDefault();const input=$('#assistantInput');const value=input.value.trim();if(value){recommend(value);input.value=''}};
 document.querySelectorAll('[data-suggest]').forEach(btn=>btn.onclick=()=>recommend(btn.dataset.suggest));
 

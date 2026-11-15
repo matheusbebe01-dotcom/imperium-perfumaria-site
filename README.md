@@ -1,12 +1,14 @@
 ﻿# Maison Noir — protótipo de perfumaria
 
-Abra index.html no navegador. Interface responsiva em preto e dourado, sem instalação. A marca, os seis perfumes, as ilustrações e os valores são exemplos.
+Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos enviadas pelo cliente e 3 fotos adicionais pesquisadas na internet. Marca da loja e checkout continuam demonstrativos. Preços e disponibilidade sob consulta.
+
+Identificações, limitações e fontes estão em CATALOGO-IDENTIFICACAO.md. Edite os produtos em catalog.json e execute `node build-site.cjs` para atualizar app.js e dist. Valide com `node --check app.js` e `node verify-catalog.cjs`.
 
 Inclui apresentação, navegação para coleção, filtros, detalhes, sacola com quantidade e subtotal, cadastro demonstrativo com nome e telefone obrigatórios e preferência opcional de marketing. A sacola e o perfil fictício duram somente a sessão da aba. Senhas nunca são armazenadas. O login real, a verificação de e-mail e a recuperação de senha ainda não estão implementados.
 
 ## Personalizar
 - Logomarca: substituir a marca em index.html.
-- Produtos: editar perfumes em app.js. Substituir a função bottle e os blocos de mídia por fotos ou vídeos fornecidos pelo cliente.
+- Produtos: editar catalog.json; as fotos estão em assets/perfumes. Cada produto tem uma galeria e pode exibir fonte e legenda para fotos externas.
 - WhatsApp: preencher STORE.whatsapp em app.js com o número comercial, incluindo 55 e DDD, somente dígitos. Enquanto vazio, o botão informa que falta configurar.
 - Cores e layout: style.css.
 - As fontes usam Google Fonts e têm alternativas locais quando não há internet.

@@ -1,0 +1,10 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const root=__dirname;
+const perfumes=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));
+const appPath=path.join(root,'app.js');
+const app=fs.readFileSync(appPath,'utf8');
+fs.writeFileSync(appPath,app.replace(/const perfumes = \[[\s\S]*?\n\];/,`const perfumes = ${JSON.stringify(perfumes,null,2)};`));
+fs.mkdirSync(path.join(root,'dist/assets/perfumes'),{recursive:true});
+for(const file of ['index.html','app.js','style.css',...new Set(perfumes.flatMap(p=>p.images.map(im=>im.src)))]) fs.copyFileSync(path.join(root,file),path.join(root,'dist',file));
+console.log('Distribuição atualizada com catálogo e fotos locais.');
