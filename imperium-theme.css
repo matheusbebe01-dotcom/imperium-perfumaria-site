@@ -85,6 +85,7 @@ footer p,footer button,footer>small{font-size:11px}
 /* Identificação e atendimento da sacola pelo WhatsApp. */
 .floating-bag{position:fixed;right:20px;bottom:140px;z-index:4;display:flex;align-items:center;gap:10px;min-height:52px;padding:12px 17px;border:1px solid #72e6a6;border-radius:30px;background:#31c77a;color:#102d21;box-shadow:0 5px 22px #0005;font-size:14px;font-weight:700;line-height:1.3}
 .floating-bag[hidden]{display:none}
+.product-summary button:disabled,.detail .primary:disabled{cursor:not-allowed;opacity:.7;color:var(--muted);background:transparent}
 .floating-bag:hover{background:#56dc95;color:#102d21}
 .floating-bag svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .floating-bag b{display:grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:50%;background:#143b2b;color:#f2fff7;font-size:12px}

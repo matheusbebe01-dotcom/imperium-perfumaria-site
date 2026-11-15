@@ -1,29 +1,29 @@
-﻿# Barbearia Imperium — protótipo de perfumaria
+# Barbearia Imperium — Perfumaria
 
-Abra index.html no navegador. Catálogo com 12 perfumes/versões, 19 fotos enviadas pelo cliente e 3 fotos adicionais pesquisadas na internet. Preços e disponibilidade são combinados pelo WhatsApp da Barbearia Imperium. Os perfumes são oferecidos em tamanho original, conforme informado pela loja; não presumir o volume em mililitros a partir das fotos de referência.
+Loja: https://barbearia-imperium.thrivingmile2.chatgpt.site
 
-Identificações, limitações e fontes estão em CATALOGO-IDENTIFICACAO.md. Edite os produtos em catalog.json e execute `node build-site.cjs` para atualizar app.js e dist. Valide com `node --check app.js` e `node verify-catalog.cjs`.
+Painel: https://barbearia-imperium.thrivingmile2.chatgpt.site/admin
 
-Na primeira visita, abre uma tela de identificação com nome e sobrenome obrigatórios. O cliente pode lembrar o nome no dispositivo (localStorage) ou apenas na aba (sessionStorage). Não há senha, autenticação ou banco de dados. A sacola dura a sessão da aba. O cliente pode explorar sem se identificar, mas precisa informar nome e sobrenome antes de encaminhar a seleção ao WhatsApp.
+O painel permite cadastrar fotos, nome, marca, volume, preço opcional, tipo de aroma, notas, intensidade, doçura, ocasiões, descrição e disponibilidade. Instruções em GUIA-DO-FORNECEDOR.md.
 
-A sacola oferece “Combinar preços pelo WhatsApp” e “Conversar sobre os produtos”. O link usa `wa.me` com mensagem codificada, nome, nomes dos perfumes e quantidades atuais. O cliente revisa e envia a mensagem no WhatsApp; o site não envia automaticamente e não efetua pedidos ou pagamentos. A prévia da mensagem fica disponível na sacola.
+## Acesso e dados
 
-Validação do fluxo: `node verify-whatsapp.cjs` (com WhatsApp simulado, sem envio de mensagens).
+O login administrativo usa a autenticação ChatGPT da hospedagem. OWNER_EMAILS define os responsáveis, e ADMIN_EMAILS contém os acessos iniciais. Os valores são configurados como segredos do Site, fora do repositório. O responsável pode liberar ou revogar o e-mail do fornecedor no painel. O fornecedor pode gerenciar o catálogo, mas somente o responsável pode gerenciar acessos.
 
-## Personalizar
-- Logomarca: substituir a marca em index.html.
-- Produtos: editar catalog.json; as fotos estão em assets/perfumes. Cada produto tem uma galeria e pode exibir fonte e legenda para fotos externas.
-- WhatsApp: `STORE.whatsapp` em app.js. Configurado como `556292063634`, exatamente o número enviado pelo proprietário, com o código do Brasil. Confirmar com ele se há um nono dígito antes de alterar o destinatário.
-- Cores, tipografia e layout: style.css e imperium-theme.css. Fontes serifadas locais.
+O catálogo fica no D1 (DB), com fotos no R2 (BUCKET). Todas as operações administrativas verificam identidade e permissão no servidor. As contas adicionais são vinculadas ao identificador estável do usuário no primeiro login. Alterações guardam o identificador de quem as publicou e usam controle de versão para evitar sobrescrita concorrente.
 
-## Para transformar em uma loja real
-1. Autenticação: backend com provedor como Supabase Auth ou Firebase Auth para email/senha, confirmação de email, recuperação e sessão persistente segura. Não enviar senha por email. Nunca confiar no perfil do navegador como prova de identidade.
-2. Banco de dados: perfil com nome, telefone, consentimento e data, produtos, estoque e pedidos, com controle de acesso por cliente. Aplicar política de privacidade e permitir cancelar marketing.
-3. Checkout: integrar provedor de pagamento como Mercado Pago, com chaves privadas somente no servidor. Calcular preços, estoque e frete no servidor, nunca confiar nos valores do navegador.
-4. Confirmação: receber webhook de pagamento, verificar assinatura e estado junto ao provedor, processar eventos sem duplicar pedidos e só então marcar como pago.
-5. Avisos: enviar confirmação ao comprador e notificação ao vendedor por serviço de email. Para mensagens automáticas pelo WhatsApp, configurar WhatsApp Business Platform e os modelos exigidos. O link wa.me serve para conversa manual e não envia notificações automáticas.
-6. Antes de publicar para vendas, configurar domínio, HTTPS, frete, troca/devolução e testar cadastro, recuperação, compra aprovada/recusada e webhook.
+Salvar rascunho preserva a versão pública. Publicar atualiza a loja. Arquivar é reversível. O catálogo de catalog.json é importado apenas na primeira execução, sem sobrescrever cadastros existentes. Migrações em drizzle devem ser preservadas após aplicação.
 
-Dados necessários: marca/logo, catálogo e mídia, preços e estoque, número comercial, email do vendedor, endereço de origem, regras de entrega e contas dos provedores. Nenhuma chave secreta deve ser colocada no HTML ou app.js.
+Os clientes continuam informando nome e sobrenome localmente no navegador. Essa identificação é independente do acesso administrativo. A sacola gera mensagens para WhatsApp; não efetua pagamentos nem envia mensagens automaticamente. O número configurado é 556292063634, exatamente o informado pelo proprietário; confirmar o nono dígito antes de alterá-lo.
 
-O site não possui servidor de autenticação, não cobra, não dispara emails e não registra pedidos reais. O atendimento e a combinação de valores acontecem no WhatsApp.
+## Desenvolvimento
+
+Vinext/Cloudflare Worker, preservando o visual da loja em HTML/CSS/JS. node build-site.cjs prepara os arquivos públicos. Use o helper oficial de build e publicação da skill Sites para gerar o Worker, incluir migrações e publicar no projeto existente.
+
+No PowerShell, use npm.cmd quando npm.ps1 estiver bloqueado. Variáveis de teste ficam em .dev.vars, ignorado pelo Git. Não configure a identidade local seedy@sites.test em produção.
+
+Verificações: node --check app.js; node --check admin-panel.js; node verify-catalog.cjs; node verify-whatsapp.cjs; node node_modules/typescript/bin/tsc --noEmit.
+
+node verify-admin.mjs usa o preview local na porta 5173 com migrações aplicadas e seedy@sites.test nas variáveis locais. Testa acesso, rascunhos, publicação, conflito de edição, disponibilidade, aroma/ocasião, fotos no R2, validação de imagem, arquivar, restaurar e controle de acessos. Os produtos de teste são arquivados e permanecem apenas no banco local.
+
+A revisão visual depende da disponibilidade do host de navegador. Não foram enviadas mensagens nem efetuadas transações durante os testes.

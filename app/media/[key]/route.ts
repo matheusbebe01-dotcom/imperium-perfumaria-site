@@ -1,0 +1,3 @@
+import {api,bucket,ApiError} from '../../../lib/catalog-service';
+export const dynamic='force-dynamic';
+export function GET(request:Request,context:{params:Promise<{key:string}>}){return api(async()=>{const key=(await context.params).key;if(!/^[a-f0-9-]{36}-(?:full|thumb)\.jpg$/.test(key))throw new ApiError(404,'Foto não encontrada.');const file=await bucket().get('catalog/'+key);if(!file)throw new ApiError(404,'Foto não encontrada.');const headers={'Content-Type':'image/jpeg','Cache-Control':'public,max-age=31536000,immutable','ETag':file.httpEtag,'X-Content-Type-Options':'nosniff'};return request.headers.get('if-none-match')===file.httpEtag?new Response(null,{status:304,headers}):new Response(file.body,{headers})})}

@@ -2,19 +2,21 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const app=fs.readFileSync(__dirname+'/app.js','utf8');
-function boot(saved,mobile=false){
+async function boot(saved,mobile=false){
   const elements=new Map(),opens=[],data=new Map();
   if(saved)data.set('imperium-customer',JSON.stringify(saved));
   const storage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
   function element(){return {innerHTML:'',textContent:'',value:'',checked:true,dataset:{},style:{},children:[],listeners:{},open:false,focused:false,append(...x){this.children.push(...x)},addEventListener(k,f){this.listeners[k]=f},setAttribute(){},setCustomValidity(){},reportValidity(){},showModal(){this.open=true},close(){this.open=false},focus(){this.focused=true}}}
   const document={querySelector(s){if(!elements.has(s))elements.set(s,element());return elements.get(s)},querySelectorAll(){return []},createElement:element,createTreeWalker(){return {nextNode(){return false}}},addEventListener(){},body:element()};
-  const ctx=vm.createContext({document,localStorage:storage,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},NodeFilter:{SHOW_TEXT:4},MutationObserver:class{observe(){}},window:{matchMedia(){return {matches:mobile}},open(...args){opens.push(args)}},location:{},setTimeout(){},clearTimeout(){}});
+  const ctx=vm.createContext({document,localStorage:storage,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},NodeFilter:{SHOW_TEXT:4},MutationObserver:class{observe(){}},fetch:async()=>({ok:true,json:async()=>({products:JSON.parse(fs.readFileSync(__dirname+'/catalog.json','utf8'))})}),window:{matchMedia(){return {matches:mobile}},open(...args){opens.push(args)}},location:{},setTimeout(){},clearTimeout(){}});
   vm.runInContext(app,ctx);
+  await vm.runInContext('catalogReady',ctx);
   return {ctx,elements,opens,data,run:code=>vm.runInContext(code,ctx)};
 }
-const first=boot();
+;(async()=>{
+const first=await boot();
 assert.equal(first.elements.get('#floatingBag').hidden,true);
-const phone=boot(null,true);
+const phone=await boot(null,true);
 assert.equal(phone.elements.get('#modal').open,true);
 assert.equal(phone.elements.get('#customerName').focused,false);
 assert.equal(first.elements.get('#modal').open,true);
@@ -42,11 +44,11 @@ first.run('quote("products")');
 assert.ok(new URL(first.opens[1][0]).searchParams.get('text').includes('conversar sobre esses produtos'));
 first.run('cart=[];saveCart();quote()');assert.equal(first.opens.length,2);
 assert.equal(first.elements.get('#floatingBag').hidden,true);
-const returning=boot({name:'Cliente que voltou'});
+const returning=await boot({name:'Cliente que voltou'});
 assert.equal(returning.elements.get('#modal').open,false);
 assert.equal(returning.elements.get('#account').textContent,'Meu perfil');
 returning.run('clearCustomer()');assert.ok(!returning.data.has('imperium-customer'));
-const guest=boot();guest.run('add(103);quote("products")');assert.equal(guest.opens.length,0);
+const guest=await boot();guest.run('add(103);quote("products")');assert.equal(guest.opens.length,0);
 guest.elements.get('#customerName').value='Beatriz';guest.elements.get('#customerForm').onsubmit({preventDefault(){}});
 assert.equal(guest.opens.length,0);
 guest.elements.get('#customerSurname').value='Costa';guest.elements.get('#customerForm').onsubmit({preventDefault(){}});
@@ -54,3 +56,5 @@ assert.equal(guest.opens.length,1);
 assert.ok(new URL(guest.opens[0][0]).searchParams.get('text').includes('Meu nome é Beatriz Costa.'));
 assert.ok(new URL(guest.opens[0][0]).searchParams.get('text').includes('1x Now Intense'));
 console.log('OK: primeira entrada, nome salvo, retorno, visitante, sacola vazia, quantidades e links de negociação/dúvidas. Nenhuma mensagem foi enviada.');
+
+})().catch(error=>{console.error(error);process.exitCode=1});
