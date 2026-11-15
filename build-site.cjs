@@ -8,5 +8,5 @@ fs.writeFileSync(appPath,app.replace(/const perfumes = \[[\s\S]*?\n\];/,`const p
 fs.mkdirSync(path.join(root,'dist/assets/perfumes'),{recursive:true});
 fs.mkdirSync(path.join(root,'dist/assets/brand'),{recursive:true});
 fs.mkdirSync(path.join(root,'dist/assets/fonts'),{recursive:true});
-for(const file of ['index.html','app.js','style.css','imperium-theme.css','assets/brand/imperium-logo.jpg','assets/fonts/kings-regular.ttf','assets/fonts/kings-OFL.txt',...new Set(perfumes.flatMap(p=>[p.thumbnail,...p.images.map(im=>im.src)]))]) fs.copyFileSync(path.join(root,file),path.join(root,'dist',file));
+for(const file of ['index.html','app.js','style.css','imperium-theme.css','assets/brand/imperium-logo-correta.jpg','assets/fonts/kings-regular.ttf','assets/fonts/kings-OFL.txt',...new Set(perfumes.flatMap(p=>[p.thumbnail,...p.images.map(im=>im.src)]))]) fs.copyFileSync(path.join(root,file),path.join(root,'dist',file));
 console.log('Distribuição atualizada com catálogo e fotos locais.');
