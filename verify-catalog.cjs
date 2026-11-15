@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 const path=require('node:path');
 const root=__dirname;
 const elements=new Map();
-function el(){return {innerHTML:'',textContent:'',style:{},dataset:{},children:[],open:false,hidden:true,append(...items){this.children.push(...items)},showModal(){this.open=true},close(){this.open=false},addEventListener(){},focus(){},get firstElementChild(){return {remove(){}}}}}
+function el(){return {innerHTML:'',textContent:'',style:{},dataset:{},children:[],open:false,hidden:true,append(...items){this.children.push(...items)},showModal(){this.open=true},close(){this.open=false},addEventListener(){},setAttribute(){},focus(){},get firstElementChild(){return {remove(){}}}}}
 const document={querySelector(s){if(!elements.has(s))elements.set(s,el());return elements.get(s)},querySelectorAll(){return []},createElement:el,createTreeWalker(){return {nextNode(){return false}}},addEventListener(){},body:el()};
 const context=vm.createContext({document,NodeFilter:{SHOW_TEXT:4,FILTER_ACCEPT:1,FILTER_REJECT:2},MutationObserver:class{observe(){}},sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},setTimeout(){},clearTimeout(){},window:{},location:{},FormData:class{}});
 vm.runInContext(fs.readFileSync(path.join(root,'app.js'),'utf8'),context);

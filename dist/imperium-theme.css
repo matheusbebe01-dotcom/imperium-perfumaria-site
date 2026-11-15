@@ -83,6 +83,12 @@ footer p,footer button,footer>small{font-size:11px}
 @media(max-width:380px){.brand-copy{font-size:18px}.actions{font-size:10px}}
 
 /* Identificação e atendimento da sacola pelo WhatsApp. */
+.floating-bag{position:fixed;right:20px;bottom:140px;z-index:4;display:flex;align-items:center;gap:10px;min-height:52px;padding:12px 17px;border:1px solid #72e6a6;border-radius:30px;background:#31c77a;color:#102d21;box-shadow:0 5px 22px #0005;font-size:14px;font-weight:700;line-height:1.3}
+.floating-bag[hidden]{display:none}
+.floating-bag:hover{background:#56dc95;color:#102d21}
+.floating-bag svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.floating-bag b{display:grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:50%;background:#143b2b;color:#f2fff7;font-size:12px}
+@media(max-width:600px){.floating-bag{bottom:calc(83px + env(safe-area-inset-bottom,0px));right:16px;font-size:13px;padding:11px 15px;min-height:49px}}
 .seller-contact{margin:0 5% 60px;padding:30px 34px;display:flex;align-items:center;justify-content:space-between;gap:30px;background:linear-gradient(115deg,#2f4b43,#293f42);border:1px solid #557a66;border-radius:10px}
 .seller-contact h2{font-size:32px;margin:9px 0 12px}
 .seller-contact p:not(.eyebrow){font-size:14px;line-height:1.8;color:var(--muted);max-width:520px;margin:0}
@@ -108,3 +114,14 @@ footer .imperium-signature::after{content:'';position:absolute;left:5%;right:-8%
 .quote-preview summary{cursor:pointer;font-size:12px;color:#b4e8cb}
 .quote-preview pre{font:inherit;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8;margin:14px 0 0;color:#d9e9e0}
 @media(max-width:600px){.cart-row{align-items:flex-start}.cart-row>div:first-child{min-width:0}.cart-row h3{overflow-wrap:anywhere}.quote-actions .primary,.quote-secondary{font-size:12px}.customer-entry h2{font-size:33px}}
+
+/* Form fields at 16px prevent focus zoom on mobile Safari; pinch zoom stays available. */
+@media(max-width:700px){
+  header{flex-wrap:wrap}
+  header .brand{min-width:0;max-width:100%}
+  header .actions{margin-left:auto;flex-shrink:0}
+  .brand-copy{white-space:normal}
+  input:not([type=checkbox]),textarea,select,#assistantForm input{font-size:16px;line-height:1.5}
+  input:not([type=checkbox]){min-height:46px}
+  dialog{max-width:calc(100% - 24px)}
+}

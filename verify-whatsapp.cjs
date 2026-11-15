@@ -2,17 +2,21 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 const assert=require('node:assert/strict');
 const app=fs.readFileSync(__dirname+'/app.js','utf8');
-function boot(saved){
+function boot(saved,mobile=false){
   const elements=new Map(),opens=[],data=new Map();
   if(saved)data.set('imperium-customer',JSON.stringify(saved));
   const storage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
-  function element(){return {innerHTML:'',textContent:'',value:'',checked:true,dataset:{},style:{},children:[],listeners:{},open:false,append(...x){this.children.push(...x)},addEventListener(k,f){this.listeners[k]=f},setAttribute(){},setCustomValidity(){},reportValidity(){},showModal(){this.open=true},close(){this.open=false},focus(){}}}
+  function element(){return {innerHTML:'',textContent:'',value:'',checked:true,dataset:{},style:{},children:[],listeners:{},open:false,focused:false,append(...x){this.children.push(...x)},addEventListener(k,f){this.listeners[k]=f},setAttribute(){},setCustomValidity(){},reportValidity(){},showModal(){this.open=true},close(){this.open=false},focus(){this.focused=true}}}
   const document={querySelector(s){if(!elements.has(s))elements.set(s,element());return elements.get(s)},querySelectorAll(){return []},createElement:element,createTreeWalker(){return {nextNode(){return false}}},addEventListener(){},body:element()};
-  const ctx=vm.createContext({document,localStorage:storage,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},NodeFilter:{SHOW_TEXT:4},MutationObserver:class{observe(){}},window:{open(...args){opens.push(args)}},location:{},setTimeout(){},clearTimeout(){}});
+  const ctx=vm.createContext({document,localStorage:storage,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},NodeFilter:{SHOW_TEXT:4},MutationObserver:class{observe(){}},window:{matchMedia(){return {matches:mobile}},open(...args){opens.push(args)}},location:{},setTimeout(){},clearTimeout(){}});
   vm.runInContext(app,ctx);
   return {ctx,elements,opens,data,run:code=>vm.runInContext(code,ctx)};
 }
 const first=boot();
+assert.equal(first.elements.get('#floatingBag').hidden,true);
+const phone=boot(null,true);
+assert.equal(phone.elements.get('#modal').open,true);
+assert.equal(phone.elements.get('#customerName').focused,false);
 assert.equal(first.elements.get('#modal').open,true);
 assert.ok(first.elements.get('#modalBody').innerHTML.includes('customerForm'));
 assert.ok(!first.elements.get('#modalBody').innerHTML.includes('type="password"'));
@@ -22,6 +26,8 @@ first.elements.get('#customerForm').onsubmit({preventDefault(){}});
 assert.equal(JSON.parse(first.data.get('imperium-customer')).name,'Ana Maria Silva & João');
 assert.equal(first.elements.get('#modal').open,false);
 first.run('add(101);add(101);add(103);quote("prices")');
+assert.equal(first.elements.get('#floatingBag').hidden,false);
+assert.equal(first.elements.get('#floatingCount').textContent,3);
 assert.equal(first.opens.length,1);
 const [link,target,features]=first.opens[0],url=new URL(link),message=url.searchParams.get('text');
 assert.equal(url.hostname,'wa.me');
@@ -34,7 +40,8 @@ assert.ok(!message.includes('undefined'));
 assert.equal(target,'_blank');assert.equal(features,'noopener,noreferrer');
 first.run('quote("products")');
 assert.ok(new URL(first.opens[1][0]).searchParams.get('text').includes('conversar sobre esses produtos'));
-first.run('cart=[];quote()');assert.equal(first.opens.length,2);
+first.run('cart=[];saveCart();quote()');assert.equal(first.opens.length,2);
+assert.equal(first.elements.get('#floatingBag').hidden,true);
 const returning=boot({name:'Cliente que voltou'});
 assert.equal(returning.elements.get('#modal').open,false);
 assert.equal(returning.elements.get('#account').textContent,'Meu perfil');
