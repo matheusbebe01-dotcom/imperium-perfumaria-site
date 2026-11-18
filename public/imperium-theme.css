@@ -1,4 +1,20 @@
 @font-face{font-family:'Imperium Signature';src:url('assets/fonts/kings-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.catalog-search{max-width:780px;margin:30px 0 0}
+.catalog-search>label{display:block;margin:0 0 10px;font-size:15px;color:#e7cb8b}
+.search-input-wrap{display:flex;align-items:center;gap:12px;min-height:62px;padding:6px 7px 6px 20px;border:1px solid #8f7848;border-radius:999px;background:#171717;box-shadow:0 4px 18px #0002}
+.search-input-wrap:focus-within{border-color:#e6ca89;outline:2px solid #d4b56f30;outline-offset:3px}
+.search-input-wrap>svg{width:21px;height:21px;flex-shrink:0;fill:none;stroke:#d4b56f;stroke-width:1.7;stroke-linecap:round}
+.catalog-search #perfumeSearch{flex:1;min-width:0;width:100%;margin:0;padding:10px 0;min-height:44px;border:0;border-radius:0;outline:0;background:transparent;color:#f0e4c8;font-size:16px;box-shadow:none}
+.catalog-search #perfumeSearch::placeholder{color:#aaa397;font-size:14px}
+#perfumeSearch::-webkit-search-cancel-button{-webkit-appearance:none}
+.search-input-wrap button{flex-shrink:0;min-height:46px;padding:10px 24px;border-radius:999px;font-size:13px}
+.search-submit{background:#d4b56f;color:#15110b;font-weight:700}
+.search-submit:hover{background:#e6ca89;color:#15110b}
+#clearSearch{padding-inline:8px;color:#d7c18e;text-decoration:underline;text-underline-offset:3px}
+#clearSearch[hidden]{display:none}
+.search-status{min-height:22px;margin:9px 0 0;padding-left:4px;font-size:12px;line-height:1.8;color:#b9b1a2}
+.catalog-search+.filters{margin-top:18px}
+@media(max-width:600px){.catalog-search{margin-top:24px}.search-input-wrap{gap:8px;padding-left:14px;min-height:58px}.search-input-wrap>svg{width:18px;height:18px}.search-input-wrap button{padding-inline:15px;font-size:12px}.catalog-search #perfumeSearch::placeholder{font-size:12px}#clearSearch{padding-inline:4px}.catalog-search>label{font-size:14px}}
 :root{color-scheme:dark}
 /* Preto, dourado e cinza, preservando a identidade da marca. */
 :root{--bg:#090909;--panel:#181818;--gold:#d4b56f;--text:#e8d8b1;--muted:#aaa7a0;--line:#3a3a3a}

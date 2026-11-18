@@ -14,6 +14,26 @@ const catalog=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'))
 assert.equal(catalog.length,12);
 assert.equal(new Set(catalog.map(p=>p.id)).size,12);
 assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,12);
+elements.get('#perfumeSearch').value='  ZANZÍBAR  ';
+vm.runInContext('searchCatalog()',context);
+assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,1);
+assert.ok(elements.get('#products').innerHTML.includes('Asad Zanzibar'));
+assert.equal(elements.get('#clearSearch').hidden,false);
+vm.runInContext("renderProducts('Doce')",context);
+assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,0);
+assert.ok(elements.get('#products').innerHTML.includes('Nenhum perfume encontrado'));
+elements.get('#perfumeSearch').value='now rave';
+vm.runInContext("activeFilter='Todos';searchCatalog()",context);
+assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,2);
+vm.runInContext("renderProducts('Fresco')",context);
+assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,1);
+elements.get('#perfumeSearch').value='<img src=x onerror=alert(1)>';
+vm.runInContext("activeFilter='Todos';searchCatalog()",context);
+assert.ok(!elements.get('#products').innerHTML.includes('onerror='));
+elements.get('#perfumeSearch').value='';
+vm.runInContext('searchCatalog()',context);
+assert.equal((elements.get('#products').innerHTML.match(/<article /g)||[]).length,12);
+assert.equal(elements.get('#clearSearch').hidden,true);
 const images=new Set(catalog.flatMap(p=>p.images.map(im=>im.src)));
 assert.equal([...images].filter(s=>s.includes('cliente-')).length,19);
 for(const src of images){assert.ok(fs.statSync(path.join(root,src)).size>1000,src);assert.ok(fs.existsSync(path.join(root,'public',src)),src)}
