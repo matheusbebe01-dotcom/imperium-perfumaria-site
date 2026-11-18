@@ -9,14 +9,38 @@ assert.equal((await call('/api/admin/products','POST',{status:'published',produc
 let publicList=await call('/api/catalog');assert.equal(publicList.status,200);assert.ok(publicList.body.products.length>=12);
 const home=await fetch(base+'/');assert.ok((await home.text()).includes('Barbearia Imperium'));
 const panel=await fetch(base+'/admin');assert.equal(panel.status,200);assert.ok((await panel.text()).includes('Ocasiões em que pode ser usado'));
-const signin=await fetch(base+'/signin-with-chatgpt?return_to=%2Fadmin',{redirect:'manual'});
-cookie=signin.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.ok(cookie,'Local sign-in did not return a cookie');
-assert.equal((await call('/api/admin/me')).status,200);
-assert.equal((await call('/api/admin/access')).status,200);
-assert.equal((await call('/api/admin/access','POST',{action:'grant',email:'supplier-test@example.com'})).status,200);
-assert.ok((await call('/api/admin/access')).body.members.some(m=>m.email==='supplier-test@example.com'));
-assert.equal((await call('/api/admin/access','POST',{action:'revoke',email:'supplier-test@example.com'})).status,200);
-assert.ok(!(await call('/api/admin/access')).body.members.some(m=>m.email==='supplier-test@example.com'));
+// Only fixture credentials for the local preview; never run this against production.
+assert.equal((await call('/api/admin/me','GET',undefined,{headers:{'oai-authenticated-user-id':'forged','oai-authenticated-user-email':'seedy@sites.test'}})).status,401);
+assert.equal((await call('/api/admin/auth/login','POST',{email:'seedy@sites.test',password:'wrong'},{headers:{Origin:'https://other.example'}})).status,403);
+const ownerEmail='seedy@sites.test',password='Local-preview-only-Password-2026!';
+let login=await call('/api/admin/auth/login','POST',{email:ownerEmail,password});
+if(login.status!==200){login=await call('/api/admin/auth/activate','POST',{email:ownerEmail,password,token:'a'.repeat(64)})}
+assert.equal(login.status,200,JSON.stringify(login.body));
+assert.match(login.response.headers.get('set-cookie'),/HttpOnly/);assert.match(login.response.headers.get('set-cookie'),/SameSite=Strict/);
+cookie=login.response.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');
+assert.equal((await call('/api/admin/me')).body.isOwner,true);
+assert.equal((await call('/api/admin/auth/activate','POST',{email:ownerEmail,password,token:'a'.repeat(64)})).status,400);
+const ownerCookie=cookie,supplier='supplier-'+Date.now()+'@example.com';
+const granted=await call('/api/admin/access','POST',{action:'grant',email:supplier});assert.equal(granted.status,200);
+const token=granted.body.activationPath.split('=')[1];assert.equal(token.length,64);
+cookie='';assert.equal((await call('/api/admin/auth/activate','POST',{email:supplier,password:'short',token})).status,400);
+assert.equal((await call('/api/admin/auth/activate','POST',{email:'other@example.com',password,token})).status,400);
+let activation=await call('/api/admin/auth/activate','POST',{email:supplier,password,token});assert.equal(activation.status,200,JSON.stringify(activation.body));
+cookie=activation.response.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');
+assert.equal((await call('/api/admin/me')).body.isOwner,false);
+assert.equal((await call('/api/admin/access')).status,403);
+assert.equal((await call('/api/admin/access','POST',{action:'grant',email:'attacker@example.com'})).status,403);
+assert.equal((await call('/api/admin/auth/activate','POST',{email:supplier,password,token})).status,400);
+const supplierCookie=cookie;
+let changed=await call('/api/admin/auth/password','POST',{currentPassword:password,password:password+'changed'});assert.equal(changed.status,200,JSON.stringify(changed.body));
+assert.equal((await call('/api/admin/me')).status,401,'Password change must invalidate prior sessions');
+cookie=changed.response.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ');assert.equal((await call('/api/admin/me')).status,200);
+assert.equal((await call('/api/admin/auth/login','POST',{email:supplier,password})).status,401);
+assert.equal((await call('/api/admin/auth/login','POST',{email:supplier,password:password+'changed'})).status,200);
+const activeSupplierCookie=cookie;cookie=ownerCookie;
+assert.equal((await call('/api/admin/access','POST',{action:'revoke',email:supplier})).status,200);
+cookie=activeSupplierCookie;assert.equal((await call('/api/admin/me')).status,401);cookie=ownerCookie;
+assert.equal((await call('/api/admin/access','POST',{action:'revoke',email:ownerEmail})).status,400);
 assert.equal((await call('/api/admin/products','POST',{status:'draft',product:seed[0]},{headers:{Origin:'https://other.example'}})).status,403);
 const input={...seed[0],name:'Teste administrativo '+Date.now(),available:true};
 let created=await call('/api/admin/products','POST',{status:'draft',product:input});assert.equal(created.status,201,JSON.stringify(created.body));let row=created.body;assert.equal(row.published,false);
@@ -44,3 +68,6 @@ updated=await call('/api/admin/products/'+row.id+'/status','POST',{action:'archi
 updated=await call('/api/admin/products/'+row.id+'/status','POST',{action:'restore',version:row.version});assert.equal(updated.status,200);row=updated.body;assert.ok((await call('/api/catalog')).body.products.some(p=>p.id===row.id));
 await call('/api/admin/products/'+row.id+'/status','POST',{action:'archive',version:row.version});
 console.log('OK: acesso protegido, origem, rascunho/publicação, conflito de edição, disponibilidade, campos de aroma/ocasião, upload real em R2 local, validação de imagem, arquivar e restaurar.');
+
+const oldOwnerCookie=cookie;assert.equal((await call('/api/admin/auth/logout','POST',{})).status,200);assert.equal((await call('/api/admin/me')).status,401);cookie='';
+console.log('OK: email/password, activation, token reuse, roles, password change, session invalidation, revocation and logout.');

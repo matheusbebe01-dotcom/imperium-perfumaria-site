@@ -1,5 +1,5 @@
 import {env} from 'cloudflare:workers';
-import {getChatGPTUser} from '../app/chatgpt-auth';
+import {currentAdmin} from './admin-auth';
 import seed from '../catalog.json';
 
 export class ApiError extends Error{constructor(public status:number,message:string){super(message)}}
@@ -8,7 +8,7 @@ export function bucket(){if(!env.BUCKET)throw new ApiError(503,'Fotos temporaria
 export function json(value:unknown,status=200){return Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}})}
 export async function api(fn:()=>Promise<Response>){try{return await fn()}catch(e){if(e instanceof ApiError)return json({error:e.message},e.status);console.error('Catalog API failed',e instanceof Error?e.message:'unknown');return json({error:'Não foi possível concluir a operação. Tente novamente.'},500)}}
 export function sameOrigin(request:Request){const origin=request.headers.get('origin');if(!origin||origin!==new URL(request.url).origin)throw new ApiError(403,'Origem da solicitação não autorizada.')}
-export async function admin(request?:Request){if(request&&request.method!=='GET')sameOrigin(request);const user=await getChatGPTUser();if(!user)throw new ApiError(401,'Entre com sua conta ChatGPT para administrar.');const email=user.email.toLowerCase(),allowed=(env.ADMIN_EMAILS||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean),owners=(env.OWNER_EMAILS||'').split(',').map(s=>s.trim().toLowerCase()).filter(Boolean);const isOwner=owners.includes(email);if(allowed.includes(email)||isOwner)return {...user,isOwner};const member=await db().prepare('SELECT user_id FROM catalog_administrators WHERE email=? AND active=1').bind(email).first<{user_id:string|null}>();if(!member||member.user_id&&member.user_id!==user.userId)throw new ApiError(403,'Esta conta não está autorizada a administrar a loja.');if(!member.user_id){await db().prepare('UPDATE catalog_administrators SET user_id=? WHERE email=? AND user_id IS NULL AND active=1').bind(user.userId,email).run();const bound=await db().prepare('SELECT user_id FROM catalog_administrators WHERE email=? AND active=1').bind(email).first<{user_id:string}>();if(bound?.user_id!==user.userId)throw new ApiError(403,'Esta conta não está autorizada.')}return {...user,isOwner:false}}
+export async function admin(request?:Request){if(request&&request.method!=='GET')sameOrigin(request);const user=await currentAdmin();if(!user)throw new ApiError(401,'Entre com seu e-mail e senha para administrar.');return user}
 export async function owner(request?:Request){const user=await admin(request);if(!user.isOwner)throw new ApiError(403,'Somente o responsável pela loja pode gerenciar os acessos.');return user}
 let seeded:Promise<void>|undefined;
 export async function ensureSeed(){if(!seeded)seeded=(async()=>{

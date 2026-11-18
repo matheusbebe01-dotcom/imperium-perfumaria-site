@@ -1,4 +1,4 @@
-import { sqliteTable, integer, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, integer, text, primaryKey } from 'drizzle-orm/sqlite-core';
 export const products=sqliteTable('catalog_products',{
   id:integer('id').primaryKey({autoIncrement:true}),
   draft:text('draft').notNull(),
@@ -21,3 +21,20 @@ export const administrators=sqliteTable('catalog_administrators',{
   active:integer('active').notNull().default(1),
   createdAt:text('created_at').notNull(),createdBy:text('created_by').notNull(),
 });
+export const adminAccounts=sqliteTable('admin_accounts',{
+  id:text('id').primaryKey(),email:text('email').notNull().unique(),
+  passwordHash:text('password_hash').notNull(),salt:text('salt').notNull(),
+  active:integer('active').notNull().default(1),createdAt:text('created_at').notNull(),
+});
+export const adminSessions=sqliteTable('admin_sessions',{
+  tokenHash:text('token_hash').primaryKey(),
+  accountId:text('account_id').notNull().references(()=>adminAccounts.id),
+  expiresAt:integer('expires_at').notNull(),
+});
+export const adminInvitations=sqliteTable('admin_invitations',{
+  email:text('email').primaryKey(),tokenHash:text('token_hash').notNull().unique(),
+  expiresAt:integer('expires_at').notNull(),
+});
+export const adminLoginLimits=sqliteTable('admin_login_limits',{
+  key:text('key').notNull(),window:integer('window').notNull(),attempts:integer('attempts').notNull(),
+},table=>[primaryKey({columns:[table.key,table.window]})]);

@@ -4,9 +4,13 @@ Painel: https://barbearia-imperium.thrivingmile2.chatgpt.site/admin
 
 ## Liberar o fornecedor
 
-O responsável entra com a conta ChatGPT proprietária do site, abre **Gerenciar acesso do fornecedor**, informa o e-mail da conta ChatGPT do fornecedor e clica em **Liberar acesso**. Depois, compartilha o endereço do painel. A liberação não envia e-mail automaticamente.
+No primeiro acesso, o responsável usa seu link pessoal de ativação e define uma senha de pelo menos 12 caracteres. Depois, entra no painel com **e-mail e senha**. Não é necessário ter conta no ChatGPT.
 
-O fornecedor usa **Entrar com ChatGPT** com a conta autorizada. Ele poderá cuidar dos produtos; somente o responsável pode liberar ou revogar outros acessos. Não é necessário compartilhar contas ou senhas.
+Para liberar o fornecedor, abra **Gerenciar acesso do fornecedor**, informe o e-mail dele e clique em **Gerar link de acesso**. Copie o link e envie somente ao destinatário. Ele informa esse mesmo e-mail e define a própria senha. O link vale por 48 horas e pode ser usado uma única vez. A geração do link não envia e-mail automaticamente.
+
+O fornecedor pode cuidar dos produtos; somente o responsável pode liberar ou revogar acessos. Para redefinir a senha do fornecedor, gere um novo link para o mesmo e-mail. **Revogar acesso** encerra as sessões dele imediatamente. Cada administrador pode usar **Alterar minha senha** para trocar a própria senha; as outras sessões são encerradas. O botão **Sair** encerra o acesso no dispositivo atual.
+
+As sessões duram até oito horas. Se o responsável perder a senha, a recuperação exige um novo link privado preparado na configuração da hospedagem. Não compartilhe sua senha ou o link de ativação em locais públicos.
 
 ## Adicionar um perfume
 

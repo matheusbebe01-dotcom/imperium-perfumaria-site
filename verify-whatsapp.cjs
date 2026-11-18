@@ -17,9 +17,11 @@ async function boot(saved,mobile=false){
 const first=await boot();
 assert.equal(first.elements.get('#floatingBag').hidden,true);
 const phone=await boot(null,true);
-assert.equal(phone.elements.get('#modal').open,true);
-assert.equal(phone.elements.get('#customerName').focused,false);
-assert.equal(first.elements.get('#modal').open,true);
+assert.equal(phone.elements.get('#modal').open,false);
+assert.equal(first.elements.get('#modal').open,false);
+assert.ok(first.elements.get('#products').innerHTML.includes('Fakhar'));
+phone.run('account()');assert.equal(phone.elements.get('#customerName').focused,false);
+first.run('account()');assert.equal(first.elements.get('#modal').open,true);
 assert.ok(first.elements.get('#modalBody').innerHTML.includes('customerForm'));
 assert.ok(!first.elements.get('#modalBody').innerHTML.includes('type="password"'));
 first.elements.get('#customerName').value='Ana Maria';
