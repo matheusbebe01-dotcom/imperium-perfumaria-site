@@ -35,3 +35,9 @@ body.login-screen{background:radial-gradient(ellipse at 50% 20%,#24211a 0,#10101
 .login-private svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5;flex-shrink:0}
 @media(max-width:600px){.login-screen header{padding:18px 22px}.login-screen main{padding:6px 16px 30px;min-height:calc(100svh - 64px)}.login-card{padding:24px 24px 25px;border-radius:24px}.login-logo{width:160px;margin-top:-6px}.login-card h1{font-size:29px}.login-card .login-intro{font-size:13px;margin-bottom:22px}.login-private{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.login-card input,.login-card .primary,.login-back{transition:none}}
+.price-fieldset{border:1px solid #a48a50;background:linear-gradient(120deg,#28231a,#1b1b1b);margin-top:0}
+.price-fieldset legend{color:#edcf88}
+.price-fieldset .form-grid{align-items:center}
+.price-label{color:#edcf88;font-size:16px}
+.price-fieldset #productPrice{min-height:56px;background:#101010;border-color:#a48a50;color:#f0dca5;font-size:23px;font-weight:700}
+.price-fieldset .help{margin:14px 0 0;max-width:650px}
